@@ -1,0 +1,62 @@
+
+<section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center" style="background-image:url(https://www.kennedypartnerslawyers.com.au/assets/uploads/2020/04/fusion-medical-animation-EAgGqOiDDMg-unsplash-scaled.jpg); height: 100px;  background-position: center;
+background-repeat: no-repeat;
+background-size: cover; ">
+
+\
+      <div class="container">
+        <div class="row justify-content-center form-bg-image" data-background-lg="assets/img/signin.svg">
+           <div class="col-12 d-flex align-items-center justify-content-center">
+              <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+               <div class="text-center text-md-center mb-4 mt-md-0">
+                    <h1 class="mb-0 h3">Sign in </h1>
+               </div>
+
+      <form class="mt-4 con"  >
+        <div class="form-group mb-4">
+          <div class="input-group">
+
+        <mat-form-field >
+          <mat-label>UserName</mat-label>
+        <input matInput style="display:inline" type="text" 
+        [formControl]="username" title="username" placeholder="username" >
+
+        <mat-error *ngIf="username.hasError('required')">
+      UserName is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="form-group mb-4">
+       <div class="input-group">
+      <mat-form-field >
+        <input matInput  [formControl]="password" 
+        type="password" title="password" placeholder="Password" >
+        <mat-error *ngIf="password.hasError('minlength')">
+          Please enter a strong password
+        </mat-error>
+        <mat-error *ngIf="password.hasError('required')">
+            password is <strong>required</strong>
+        </mat-error>
+     </mat-form-field>
+    </div>
+    <ngx-recaptcha2 #captchaElem [siteKey]="siteKey">
+  </ngx-recaptcha2>
+  
+  </div>
+</div>
+
+       
+
+   
+      </form>
+      <div class="d-grid"> <button (click)="submit()" class="btn btn-gray-800" [disabled]="!username.valid||!password.valid||!recaptcha.valid" >Login</button></div>
+
+      <span class="fw-normal" >Not registered? <a (click)=" goToregister()"  class="fw-bold">Create account</a></span> 
+    </div>
+  </div>
+</div>
+</div>
+</section>

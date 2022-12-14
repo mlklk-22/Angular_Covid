@@ -1,0 +1,220 @@
+<app-sidebar></app-sidebar>
+<main class="content">
+<div class="card border-0 shadow mb-4">
+  <div class="card-body">
+      <div class="table-responsive">
+        <h1 style="font-family: serif; margin-left:40% ;">Manage Vaccine</h1>
+
+        <table class="  table-centered table-nowrap mb-0 rounded">
+              <div class="table">
+      <form class="form-inline" style="margin-left: 20%;">
+            <div class="form-group mx-sm-3 mb-2">
+            <label for="inputText" class="sr-`only" style="font-family: Fantasy	;">Vaccine Name</label>
+            <input  type="text" class="form-control" id="inputText" placeholder="Vaccine Name" [value]="name" (change)="inputValue($event)" (click)="search()" >
+            </div>
+            <button type="submit"
+        type="button" class="btn btn-outline-danger"  
+                (click)="search()">Search</button>
+            </form>
+
+
+
+<!-- 
+
+        <table class="table table-centered table-nowrap mb-0 rounded">
+          <button (click)="openCreateDialog()"  class="table-active">Create</button>
+          <br><br>
+          <thead class="table-danger">
+            <tr>
+                <th class="border-0">Name</th>
+                <th class="border-0"> Doses</th>
+                <th class="border-0">Vaccine EXP</th>
+                <th class="border-0">ID</th>
+                <th class="border-0">Total</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let obj of vaccines.Vaccine" >
+            <tr>
+                
+                <td>{{obj.vaccinename}}</td>
+                <td> {{obj.vaccinedoses}}</td>
+                <td>{{obj.vaccineexp}}</td>
+                <td>{{obj.vaccineid}}</td>
+                <td> </td>
+                 
+                  <button (click)="openUpdateDailog(obj)"  class="table-active">update</button> 
+                  <button (click)="openDelteDailog(obj.vaccineid)"  class="table-active">delete</button>
+                 
+            </tr>
+            
+          </tbody>
+      </table>
+  -->
+
+
+
+
+
+
+  <main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage User</h1>
+                    <br><br>
+                    <button (click)="openCreateDialog()"  class="table-active">Create</button>    <br><br>
+    
+    <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+    <table class="table table-centered table-nowrap mb-0 rounded">
+        <thead class="table-danger">
+          <tr>
+             <th scope="col"> Name</th>
+            <th scope="col">Doses</th>
+            <th scope="col">Vaccine EXP</th>
+            <th scope="col">ID</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+            
+          </tr>
+        </thead>
+        <tbody *ngFor="let obj of vaccines.Vaccine">
+          <tr>
+             
+            <td>{{obj.vaccinename}}</td>
+            <td>{{obj.vaccinedoses}}</td>
+            <td>{{obj.vaccineexp}}</td>
+            <td>{{obj.vaccineid}}</td>
+           
+    
+            
+             <td> <button (click)="openUpdateDailog(obj)"  class="table-active">update</button> </td>
+             <td> <button (click)="openDelteDailog(obj.vaccineid)"  class="table-active">delete</button> </td>
+                
+     </tr>
+          
+    <br>
+     
+    
+        </tbody>
+      </table>
+    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+<ng-template #callUpdateDailog>
+  <h2 mat-dialog-title>Add vaccine</h2>
+  <mat-dialog-content class="mat-typography">
+     <form class="example-form" [formGroup]="updateForm" >
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>vaccine Name</mat-label>
+        <input type="text" matInput formControlName="vaccinename"
+        [(ngModel)]="P_data.vaccinename">
+        <mat-error *ngIf="updateForm.controls['vaccinename'].hasError('required')">
+          vaccinename is <strong>required</strong>
+        </mat-error>
+      </mat-form-field> 
+  
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>vaccine Doses</mat-label>
+    <input type="number" matInput formControlName="vaccinedoses"
+    [(ngModel)]="P_data.vaccinedoses">
+    <mat-error *ngIf="updateForm.controls['vaccinedoses'].hasError('required')">
+      vaccinedoses is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>vaccine EXP</mat-label>
+          <input type="date" matInput formControlName="vaccineexp"
+          [(ngModel)]="P_data.vaccineexp">
+          <mat-error *ngIf="updateForm.controls['vaccineexp'].hasError('required')">
+            vaccineexp is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+      </form>
+  </mat-dialog-content>
+  <mat-dialog-actions >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial  (click)="saveData()">Save</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #callDelteDailog>
+<h2>Are You Sure ?</h2>
+<button mat-dialog-close="yes">YES</button>
+<hr>
+<button mat-dialog-close="cancel">CANCEL</button>
+
+</ng-template >
+
+
+<ng-template #callCreateDailog>
+<h2 mat-dialog-title>Add vaccine</h2>
+<mat-dialog-content class="mat-typography">
+   <form class="example-form" [formGroup]="createForm" >
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>vaccine Name</mat-label>
+      <input type="text" matInput formControlName="vaccinename">
+      <mat-error *ngIf="createForm.controls['vaccinename'].hasError('required')">
+        vaccinename is <strong>required</strong>
+      </mat-error>
+    </mat-form-field> 
+
+<br>
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>vaccine Doses</mat-label>
+  <input type="number" matInput formControlName="vaccinedoses">
+  <mat-error *ngIf="createForm.controls['vaccinedoses'].hasError('required')">
+    vaccinedoses is <strong>required</strong>
+  </mat-error>
+</mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>vaccine EXP</mat-label>
+        <input type="date" matInput formControlName="vaccineexp">
+        <mat-error *ngIf="createForm.controls['vaccineexp'].hasError('required')">
+          vaccineexp is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions >
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="saveCREATEData()" [mat-dialog-close]="true" cdkFocusInitial  >Save</button>
+</mat-dialog-actions>
+</ng-template>

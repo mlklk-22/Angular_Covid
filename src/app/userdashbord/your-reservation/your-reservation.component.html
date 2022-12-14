@@ -1,0 +1,49 @@
+
+
+    
+   
+<body>
+    <app-navbar></app-navbar>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<div id="wrapper">
+    <h1>Your Reservation</h1>
+
+    <table id="keywords" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+        <th><span>Date Dose one</span></th>
+        <th><span>Date Dose tow</span></th>
+        <th><span>STATUS</span></th>
+        
+        </tr>
+    </thead>
+    <tbody *ngFor="let obj of reservationn.reservation" >
+        <tr>
+        <td class="lalign">{{obj.actualdatedose1}}</td>
+        <td>{{obj.actualdatedose2}}</td>
+        <td>{{obj.status}}</td>
+        
+        </tr>
+        
+    </tbody>
+
+    </table>
+    <button > <a href="/userdashbord/Certificate" class="button">Certificate</a>    </button>
+</div>
+</body>
+  

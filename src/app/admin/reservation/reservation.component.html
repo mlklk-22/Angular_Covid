@@ -1,0 +1,143 @@
+<app-sidebar></app-sidebar>
+
+<main class="content">
+<div class="pcoded-main-container">
+  <div class="pcoded-wrapper">
+      <div class="pcoded-content">
+          <div class="pcoded-inner-content">
+              
+   <h1 style="font-family: serif; margin-left:45% ;">Manage Reservation</h1>
+   
+<form class="form-inline content" style="margin-left: 30%;" >
+  <legend style="font-family: Fantasy	;">First Dose</legend>
+
+  <div class="form-group mb-2">
+  <label for="first" >From</label>
+  <input type="date"  (change)="searchInputFromFirst($event)" [value]="datefromFirst" name="first"><br>
+  </div>
+  <div class="form-group mb-2">
+  <label for="second">To</label>
+  <input type="date"  (change)="searchInputToFirst($event)" [value]="datetoFirst" name="second"><br>
+  </div>
+   
+      <button type="submit"
+  type="button" class="btn btn-outline-danger" (click)="SearchBetweenFirstDose()">Search</button>
+</form>
+<br><br>
+<form  class="form-inline content" style="margin-left: 30%;" >
+  <legend style="font-family: Fantasy	;">Second Dose</legend>
+  <div class="form-group mb-2">
+  <label for="first">From</label>
+  <input type="date"  (change)="searchInputFromSecond($event)" [value]="datefromSecond" name="first"><br>
+  </div>
+  <div class="form-group mb-2">
+  <label for="second">To</label>
+  <input type="date"  (change)="searchInputToSecond($event)" [value]="datetoSecond" name="second"><br>
+  </div>
+   
+      <button type="submit"
+  type="button" class="btn btn-outline-danger"  (click)="SearchBetweenSecondDose()">Search</button>
+</form>
+<br><br>  
+<button (click)="openCreateDialog()" class="table-active"> Creat new</button>
+<br>
+<br>
+<div class="card border-0 shadow mb-4 " >
+  <div class="card-body">
+      <div class="table-responsive">
+<table class="table table-centered  table-nowrap  rounded" style="margin-left: 20%;">
+  <thead class="table-danger">
+      <tr>
+    <th scope="col">
+      First Dose date
+    </th>
+    <th scope="col">
+      Secound Dose date
+    </th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody *ngFor="let obj of reservation.reservation" >
+    <tr>
+      <td>{{obj.actualdatedose1}}</td>
+      <td>{{obj.actualdatedose2}}</td>
+      <td> {{obj.Id}} </td>  
+          <button (click)="openUpdateDailog(obj)"  class="table-active">Update</button>
+          <button (click)="openDelteDailog(obj.Id)" class="table-active">Delete</button>
+        </tr>
+  </tbody>
+</table>
+
+<ng-template #callUpdateDailog>
+  <h2 mat-dialog-title>update reservation </h2>
+  <mat-dialog-content class="mat-typography">
+     <form class="example-form" [formGroup]="updateForm" >
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label> First dose</mat-label>
+        <input type="date" matInput formControlName="actualdatedose1"
+        [(ngModel)]="P_data.actualdatedose1">
+        <mat-error *ngIf="updateForm.controls['actualdatedose1'].hasError('required')">
+            First dose  <strong>required</strong>
+        </mat-error>
+      </mat-form-field> 
+  
+  <br>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label> Second dose</mat-label>
+    <input type="date" matInput formControlName="actualdatedose2"
+    [(ngModel)]="P_data.actualdatedose2">
+    <mat-error *ngIf="updateForm.controls['actualdatedose2'].hasError('required')">
+        Second dose  <strong>required</strong>
+    </mat-error>
+  </mat-form-field> 
+   
+        <br>
+      </form>
+  </mat-dialog-content>
+  <mat-dialog-actions >
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial  (click)="saveData()">Save</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #callDelteDailog>
+<h2>Are You Sure ></h2>
+<button mat-dialog-close="yes">YES</button>
+<button mat-dialog-close="cancel">CANCEL</button>
+
+</ng-template >
+
+
+<ng-template #callCreateDailog>
+    <h2 mat-dialog-title>Create reservation </h2>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="createForm" >
+         <mat-form-field class="example-full-width" appearance="fill">
+           <mat-label>First dose</mat-label>
+           <input type="date" matInput formControlName="actualdatedose1"
+           [(ngModel)]="P_data.actualdatedose1">
+           <mat-error *ngIf="createForm.controls['actualdatedose1'].hasError('required')">
+               First dose at <strong>required</strong>
+           </mat-error>
+         </mat-form-field> 
+     
+     <br>
+     <mat-form-field class="example-full-width" appearance="fill">
+       <mat-label> Second dose</mat-label>
+       <input type="date" matInput formControlName="actualdatedose2"
+       [(ngModel)]="P_data.actualdatedose2">
+       <mat-error *ngIf="createForm.controls['actualdatedose2'].hasError('required')">
+           Second dose at <strong>required</strong>
+       </mat-error>
+     </mat-form-field> 
+      
+           <br>
+         </form>
+</mat-dialog-content>
+<mat-dialog-actions >
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="saveCREATEData()" [mat-dialog-close]="true" cdkFocusInitial  >Save</button>
+</mat-dialog-actions>
+</ng-template>

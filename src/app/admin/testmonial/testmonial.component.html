@@ -1,0 +1,97 @@
+<app-sidebar></app-sidebar>
+<!--<form class="form-inline" style="margin-top: 3%;">
+    <div class="form-group mx-sm-3 mb-2">
+   <label for="inputText" class="sr- only">Testmonial Name</label>
+   <input type="number" class="form-control" id="inputText" placeholder="Course name" [value]="idtest" (change)="searchTestInput($event)">
+   </div> 
+    <button type="submit" (click)="search()" class="btn btn-success">Search</button>
+   </form>-->
+
+   <main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage Testimonial</h1>
+                    <br><br>
+   <div>
+    <button   class="table-active" (click)="openCreateDialog()">Create New</button>
+<br><br>
+
+<div class="card border-0 shadow mb-4">
+  <div class="card-body">
+      <div class="table-responsive">
+<table class="table table-centered table-nowrap mb-0 rounded">
+  <thead class="table-danger">
+           <tr>
+             <th scope="col">Message</th>
+             <th scope="col">UserId</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let obj of home.allTestmonial">
+             <td>{{obj.message}}</td>
+             <td>{{obj.userid}}</td>
+              
+               <button (click)="openUpdateDialog(obj)"  class="table-active"   >Update</button>
+               <button  (click)="openDeleteDialog(obj.idtest)"  class="table-active">Delete</button> 
+           </tr>
+             </tbody>
+       </table>
+     </div>
+     
+       <!--Create Form-->
+       <ng-template #callCrateTest>
+         <h2 mat-dialog-title>Add Testmonial</h2>
+         <mat-dialog-content class="mat-typography">
+           <form [formGroup] = "createform">
+             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                 <mat-form-field class="example-full-width" >
+                   <mat-label>Message</mat-label>
+                 <input type="text"  matInput formControlName="message" placeholder="Message"/>
+                   <mat-error *ngIf="createform.controls['message'].hasError('required')">
+                     Message is <strong>required</strong>
+                   </mat-error>    
+             </mat-form-field>
+             </div>
+             
+              </form>
+         </mat-dialog-content>
+         <mat-dialog-actions align="end">
+           <button mat-button mat-dialog-close>Cancel</button>
+           <button mat-button (click)="saveData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+         </mat-dialog-actions>
+       </ng-template>
+     
+     
+     
+       <!--Update Form-->
+       <ng-template #callUpdateTest>
+         <h2 mat-dialog-title>Update Testmonial</h2>
+         <mat-dialog-content class="mat-typography">
+           <form [formGroup] = "updateform">
+             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                
+               <mat-form-field class="example-full-width" >
+                 <input type="text"  matInput formControlName="message" [(ngModel)]="p_data.message"/>
+                   <mat-error *ngIf="updateform.controls['message'].hasError('required')">
+                     Message is <strong>required</strong>
+                   </mat-error>    
+             </mat-form-field>
+             </div>
+             
+              </form>
+         </mat-dialog-content>
+         <mat-dialog-actions align="end">
+           <button mat-button mat-dialog-close>Cancel</button>
+           <button mat-button (click)="saveupdateData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+         </mat-dialog-actions>
+       </ng-template>
+     
+         <!--Delete Form-->
+         <ng-template #callDeleteTest>
+           <h2>Are You Sure You Want To Delete Yhis Item ?</h2>
+           <button mat-dialog-close="yes">YES</button>
+           <button mat-dialog-close="no">NO</button>
+           </ng-template>

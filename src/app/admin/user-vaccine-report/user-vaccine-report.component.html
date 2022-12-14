@@ -1,0 +1,51 @@
+<app-sidebar></app-sidebar>
+
+<main class="content">
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <h1 style="font-family: serif; margin-left:45% ;">Report</h1>
+                <button (click)="makePDF()" class="table-active" >Download PDF</button>
+                <div id="content" #content>
+                <table class="table table-centered table-nowrap mb-0 rounded">
+                  <thead class="table-danger" >
+                    <tr>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Number Of Vaccine</th>
+                      <th scope="col">Vaccine Name</th>
+                      <th scope="col">center name</th>
+                      <th scope="col">first date dose</th>
+                      <th scope="col"> second date dose</th>
+                
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let obj of vaccineReport.vaccineCertifcate">
+                      <th scope="row">{{obj.fullname}}</th>
+                      <th scope="row">{{obj.numberofvaccine}}</th>
+                      <th scope="row">{{obj.vaccinename}}</th>
+                      <th scope="row">{{obj.centername}}</th>
+                      <th scope="row">{{obj.firstdatedose}}</th>
+                      <th scope="row">{{obj.seconddatedose}}</th>
+                
+                
+                
+                
+                      
+                    </tr>
+                 
+                   
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+
+
+
+</main>

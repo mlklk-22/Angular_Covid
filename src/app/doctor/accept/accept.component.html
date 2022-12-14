@@ -1,0 +1,189 @@
+
+<app-sidebar></app-sidebar>
+<!-- 
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content"> -->
+
+                 
+<!-- <button (click)="opendialog()">Create New</button> -->
+<!-- <form class="form-inline" style="margin-top: 3%;">
+<div class="form-group mx-sm-3 mb-2">
+<label for="inputText" class="sr- only">Sarech User : </label>
+<input type="number" class="form-control" placeholder="search.." [value]="num" (change)="searchInput($event)" >
+</div> 
+<button type="submit"  class="btn btn-success"
+ (click)="Search()">Search</button>
+</form> -->
+<!-- 
+
+<table  class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"> ID</th>
+        <th scope="col"> Name</th>
+       
+        <th scope="col">Email</th>
+        <th scope="col">Num Vaccines</th>
+       
+        
+       
+        <th scope="col">Date Dose1</th>
+        <th scope="col">Date Dose2</th>
+        <th scope="col">Massage</th>
+        <th scope="col">status</th>
+       
+        
+
+
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let obj of doctor.userReservation"   >
+      <tr >
+        <th scope="row"></th>
+        <td>{{obj.userid}}</td>
+        <td>{{obj.fullname}}</td>
+        <td>{{obj.email}}</td>
+        <td>{{obj.numberofvaccines}}</td>
+        <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
+        <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td>
+
+        <td>{{obj.massage}}</td>
+        <td>{{obj.status}}</td>
+        <td>
+         <button (click)="openUpdateDailog(obj.userid,obj.reserveid,obj.status,obj.massage,obj.actualdatedose1,obj.actualdatedose2
+         )">Update</button> 
+         
+
+        </td>
+
+
+      </tr>
+      
+    </tbody>
+  </table>
+ -->
+ <main class="content" >
+
+   <div class="pcoded-main-container">
+      <div class="pcoded-wrapper">
+          <div class="pcoded-content">
+              <div class="pcoded-inner-content">
+                  <br><br>
+                  <h1 style="font-family: serif; margin-left:45% ;">Accept!</h1>
+ <div class="card border-0 shadow mb-4">
+  <div class="card-body">
+   
+      <div class="table-responsive">
+<table class="table table-centered table-nowrap mb-0 rounded "   >
+  <thead class="table-danger">
+ 
+              <tr>
+                  
+                  <th class="border-0">Name</th>
+                  <th class="border-0">Num Vaccines</th>
+                  <th class="border-0">Date Dose one</th>
+                  <th class="border-0">Date Dose tow</th>
+                  <th class="border-0">Massage</th>
+                  <th class="border-0 ">status</th>
+                  <th class="border-0 ">Update</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let obj of doctor.userReservation" >
+              <tr>
+                  
+                  <td >
+                    {{obj.fullname}}
+                  </td>
+                  <td>{{obj.numberofvaccines}}</td>
+                  <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
+                  <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td>
+                  <td>{{obj.massage}}</td>
+                  <td>{{obj.status}}</td>
+                  <td  >
+                    <button  (click)="openUpdateDailog(obj.userid,obj.reserveid,obj.status,obj.massage,obj.actualdatedose1,obj.actualdatedose2
+                    )">Update</button> 
+                    <!-- <button (click)="openDeleteDailog(obj.userid)">Delete</button>   -->
+           
+                   </td>
+              </tr>
+             
+            </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ng-template #callUpdateDailog>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="updateForm" >
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> status </mat-label>
+                <select  matNativeControl formControlName="status" >
+                  <option   value="accept">Accept</option>
+                  <option value="reject">Reject</option>
+                 
+                </select>
+
+                <!-- <input type="text" matInput formControlName="status"
+                [(ngModel)]="p_data.status"> -->
+                
+                <mat-error *ngIf="updateForm.controls['status'].hasError('required')">
+                Name  <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label> First dose </mat-label>
+              <input readonly type="text" matInput formControlName="actualdatedose1"
+              ngModel="{{p_data.actualdatedose1 | date : 'fullDate'}}"
+              >
+              
+              <mat-error *ngIf="updateForm.controls['actualdatedose1'].hasError('required')">
+                First dose  <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+            
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> Second dose </mat-label>
+            <input readonly type="text" matInput formControlName="actualdatedose2"
+            ngModel="{{p_data.actualdatedose2 | date : 'fullDate'}}"            
+            >
+            
+            <mat-error *ngIf="updateForm.controls['actualdatedose2'].hasError('required')">
+              Second dose  <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+                 
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="savedata()">Save</button>
+    </mat-dialog-actions>
+    
+    
+    
+    
+    </ng-template>

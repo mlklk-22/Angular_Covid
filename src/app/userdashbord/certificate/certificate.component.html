@@ -1,0 +1,86 @@
+
+<div id="content">
+  <div  id="contentToConvert" class="container pm-certificate-container" *ngFor="let obj of user.User" >
+      <div class="outer-border"></div>
+      <div class="inner-border"></div>
+      
+      <div class="pm-certificate-border col-xs-12">
+        <div class="row pm-certificate-header">
+          <div class="pm-certificate-title cursive col-xs-12 text-center">
+
+            <h2 class="pm-certificate-title h2">COVID-19 Vaccine Certificate</h2>
+          </div>
+        </div>
+  
+        <div class="row pm-certificate-body">
+          
+          <div class="pm-certificate-block">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                  <div class="pm-certificate-name underline margin-0 col-xs-8 text-center">
+                    <span class="pm-name-text bold">{{obj.fullname}}</span>
+                  </div>
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                </div>
+              </div>          
+  
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                  <div class="pm-earned col-xs-8 text-center">
+                    <span class="pm-earned-text padding-0 block cursive">Number Of Doses</span>
+                    <span class="pm-credits-text block bold sans">{{obj.numerofvaccines}}</span>
+                  </div>
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                  <div class="col-xs-12"></div>
+                </div>
+              </div>
+              
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                  <div class="pm-course-title col-xs-8 text-center">
+                    <span class="pm-earned-text block cursive">Name Of Vaccine</span>
+                  </div>
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                </div>
+              </div>
+  
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                  <div class="pm-course-title underline col-xs-8 text-center">
+                    <span class="pm-credits-text block bold sans">{{obj.vaccinename}}</span>
+                  </div>
+                  <div class="col-xs-2"><!-- LEAVE EMPTY --></div>
+                </div>
+              </div>
+          </div>       
+          
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="pm-certificate-footer">
+                  <div class="col-xs-4 pm-certified col-xs-4 text-center">
+                    <span class="pm-credits-text block sans">Ministry Of Health</span>
+                    <span class="pm-empty-space block underline"></span>
+                    <span class="bold block">H.E.Dr. Firas Al-Hawari</span>
+                  </div>
+                  <div class="col-xs-4">
+                    <!-- LEAVE EMPTY -->
+                  </div>
+                  <div class="col-xs-4 pm-certified col-xs-4 text-center">
+                    <span class="pm-credits-text block sans">Date</span>
+                    <span class="pm-empty-space block underline"></span>
+                    <span class="bold block">{{this.dateTime}} </span>
+                  </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+    <input type="button" class="btn btn-danger" value="Download" (click)="convertToPDF()" />
+  </div>

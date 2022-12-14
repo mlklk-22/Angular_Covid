@@ -1,0 +1,383 @@
+<app-sidebar></app-sidebar>
+<!--<form class="form-inline" style="margin-top: 3%;">
+    <div class="form-group mx-sm-3 mb-2">
+   <label for="inputText" class="sr- only">Testmonial Name</label>
+   <input type="number" class="form-control" id="inputText" placeholder="Course name" [value]="idtest" (change)="searchTestInput($event)">
+   </div> 
+    <button type="submit" (click)="search()" class="btn btn-success">Search</button>
+   </form>-->
+   <main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage Home </h1>
+                    <br><br>  
+                    <button  class="table-active"(click)="openCreateDialog()">Create New</button>
+  <div>
+ <br>
+
+ <div class="card border-0 shadow mb-4">
+  <div class="card-body">
+      <div class="table-responsive">
+<table class="table table-centered table-nowrap mb-0 rounded">
+      <thead class="table-danger">
+        <tr>
+          <th scope="col">imageLogo</th><th scope="col">littleTitle1</th>
+          <th scope="col">Title1</th><th scope="col">Title1</th>
+          <th scope="col">descriptionTitle1</th><th scope="col">imageTitle1</th>
+          <th scope="col">textButton</th><th scope="col">statisticsTitle</th>
+          <th scope="col">descriptionStatistics</th><th scope="col">desc1Statistics</th>
+          <th scope="col">desc2Statistics</th><th scope="col">desc3Statistics</th>
+          <th scope="col">newsTitle</th><th scope="col">newsImage1</th>
+          <th scope="col">newsImage2</th><th scope="col">newsImage3</th>
+          <th scope="col">newsdesc1</th> <th scope="col">newsdesc2</th>
+          <th scope="col">newsdesc3</th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of home.allHome">
+            <th scope="col"><img src="../../../assets/images/{{obj.imagelogo}}" alt=""> </th>
+            <th scope="col">{{obj.littletitle1}}</th>
+            <th scope="col">{{obj.title1}}</th>
+            <th scope="col">{{obj.descriptiontitle1}}</th><th scope="col">{{obj.imagetitle1}}</th>
+            <th scope="col">{{obj.textbutton}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.statisticstitle}}"></th>
+            <th scope="col">{{obj.descriptionstatistics}}</th><th scope="col">{{obj.desc1statistics}}</th>
+            <th scope="col">{{obj.desc2statistics}}</th><th scope="col">{{obj.desc3statistics}}</th>
+            <th scope="col">{{obj.newstitle}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage1}}"></th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage2}}"></th>
+            <th scope="col"><img src="../../../assets/images/{{obj.newsimage3}}"></th>
+            <th scope="col">{{obj.newsdesc1}}</th> <th scope="col">{{obj.newsdesc2}}</th>
+            <th scope="col">{{obj.newsdesc3}}</th>
+            <th scope="col"></th>
+            <th>  <button (click)="openUpdateDialog(obj)"  class="table-active" >Update</button>
+            <button  (click)="openDeleteDialog(obj.homeid)"  class="table-active" >Delete</button> 
+          </th>
+          
+        </tr>
+          </tbody>
+    </table>
+  </div>
+  
+    <!--Create Form-->
+    <ng-template #callCrateTest>
+      <h2 mat-dialog-title>Add Home</h2>
+      <mat-dialog-content class="mat-typography">
+        <form [formGroup] = "createform">
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                <mat-label>imagelogo</mat-label>
+              <input type="file" #file  (change)="uploadimagelogo(file.files)" placeholder="imagelogo"/>  
+          </div>
+          <div class="input_field">
+             <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>littletitle1</mat-label>
+            <input type="text" matInput formControlName="littleTitle1"  placeholder="littletitle1"/>
+              <mat-error *ngIf="createform.controls['littleTitle1'].hasError('required')">
+                littletitle1 is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>title1</mat-label>
+            <input type="text" matInput formControlName="Title1" placeholder="title1"/>
+            <mat-error *ngIf="createform.controls['Title1'].hasError('required')">
+              Title1 is <strong>required</strong>
+            </mat-error>  
+          </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>descriptiontitle1</mat-label>
+            <input type="text" matInput formControlName="descriptionTitle1" />
+              <mat-error *ngIf="createform.controls['descriptionTitle1'].hasError('required')">
+                descriptiontitle1 is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-label>imagetitle1</mat-label>
+            <input type="file" #file  (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>  
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>textbutton</mat-label>
+            <input type="text" matInput formControlName="textButton" placeholder="textbutton"/>
+              <mat-error *ngIf="createform.controls['textButton'].hasError('required')">
+                textbutton is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>statisticstitle</mat-label>
+            <input type="text"  matInput formControlName="statisticsTitle"  placeholder="statisticstitle"/>
+              <mat-error *ngIf="createform.controls['statisticsTitle'].hasError('required')">
+                statisticstitle is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>descriptionStatistics</mat-label>
+            <input type="text" matInput formControlName="descriptionStatistics"  placeholder="descriptionStatistics"/>
+              <mat-error *ngIf="createform.controls['descriptionStatistics'].hasError('required')">
+                descriptionStatistics is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>desc1Statistics</mat-label>
+            <input type="text"  matInput formControlName="desc1Statistics"  placeholder="desc1Statistics"/>
+              <mat-error *ngIf="createform.controls['desc1Statistics'].hasError('required')">
+                desc1Statistics is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>desc2Statistics</mat-label>
+            <input type="text"  matInput formControlName="desc2Statistics" placeholder="desc2Statistics"/>
+              <mat-error *ngIf="createform.controls['desc2Statistics'].hasError('required')">
+                desc2Statistics is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>desc3Statistics</mat-label>
+            <input type="text"  matInput formControlName="desc3Statistics" placeholder="desc3Statistics"/>
+              <mat-error *ngIf="createform.controls['desc3Statistics'].hasError('required')">
+                desc3Statistics is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>newsTitle</mat-label>
+            <input type="text"  matInput formControlName="newsTitle" placeholder="newsTitle"/>
+              <mat-error *ngIf="createform.controls['newsTitle'].hasError('required')">
+                newsTitle is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-label>newsImage1</mat-label>
+            <input type="file" #file  (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>  
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-label>newsImage2</mat-label>
+            <input type="file" #file  (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>   
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-label>newsImage3</mat-label>
+            <input type="file" #file  (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>
+         
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>newsdesc1</mat-label>
+            <input type="text" matInput formControlName="newsdesc1" placeholder="newsdesc1"/>
+              <mat-error *ngIf="createform.controls['newsdesc1'].hasError('required')">
+                newsdesc1 is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>newsdesc2</mat-label>
+            <input type="text"  matInput formControlName="newsdesc2" placeholder="newsdesc2"/>
+              <mat-error *ngIf="createform.controls['newsdesc2'].hasError('required')">
+                newsdesc2 is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>newsdesc3</mat-label>
+            <input type="text"  matInput formControlName="newsdesc3" placeholder="newsdesc3"/>
+              <mat-error *ngIf="createform.controls['newsdesc3'].hasError('required')">
+                newsdesc3 is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+          
+           </form>
+      </mat-dialog-content>
+      <mat-dialog-actions >
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="saveData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+      </mat-dialog-actions>
+    </ng-template>
+  
+  
+  
+    <!--Update Form-->
+    <ng-template #callUpdateTest>
+      <h2 mat-dialog-title>Update Home</h2>
+      <mat-dialog-content class="mat-typography">
+        <form [formGroup] = "updateform">
+          
+
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          
+              <mat-label>imagelogo</mat-label>
+            <input type="file" #file (change)="uploadimagelogo(file.files)" [(ngModel)]="p_data.imagelogo" placeholder="imagelogo"/>
+            </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>littletitle1</mat-label>
+          <input type="text" matInput formControlName="littletitle1" [(ngModel)]="p_data.littletitle1"  placeholder="littletitle1"/>
+            <mat-error *ngIf="updateform.controls['littletitle1'].hasError('required')">
+              littletitle1 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>title1</mat-label>
+          <input type="text"  matInput formControlName="title1" [(ngModel)]="p_data.title1" placeholder="title1"/>
+            <mat-error *ngIf=" updateform.controls['title1'].hasError('required')">
+              title1 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>descriptiontitle1</mat-label>
+          <input type="text" matInput formControlName="descriptiontitle1" [(ngModel)]="p_data.descriptiontitle1" />
+            <mat-error *ngIf=" updateform.controls['descriptiontitle1'].hasError('required')">
+              descriptiontitle1 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-label>imagetitle1</mat-label>
+          <input type="file" #file   [(ngModel)]="p_data.imagetitle1" (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>textbutton</mat-label>
+          <input type="text" matInput formControlName="textbutton" [(ngModel)]="p_data.textbutton" placeholder="textbutton"/>
+            <mat-error *ngIf=" updateform.controls['textbutton'].hasError('required')">
+              textbutton is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>statisticstitle</mat-label>
+          <input type="text"  matInput formControlName="statisticstitle" [(ngModel)]="p_data.statisticstitle"  placeholder="statisticstitle"/>
+            <mat-error *ngIf=" updateform.controls['statisticstitle'].hasError('required')">
+              statisticstitle is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>descriptionStatistics</mat-label>
+          <input type="text" matInput formControlName="descriptionstatistics" [(ngModel)]="p_data.descriptionstatistics"  placeholder="descriptionStatistics"/>
+            <mat-error *ngIf=" updateform.controls['descriptionstatistics'].hasError('required')">
+              descriptionStatistics is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>desc1Statistics</mat-label>
+          <input type="text"  matInput formControlName="desc1statistics" [(ngModel)]="p_data.desc1statistics"  placeholder="desc1Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc1statistics'].hasError('required')">
+              desc1Statistics is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>desc2Statistics</mat-label>
+          <input type="text"  matInput formControlName="desc2statistics" [(ngModel)]="p_data.desc2statistics" placeholder="desc2Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc2statistics'].hasError('required')">
+              desc2Statistics is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>desc3Statistics</mat-label>
+          <input type="text"  matInput formControlName="desc3statistics" [(ngModel)]="p_data.desc3statistics" placeholder="desc3Statistics"/>
+            <mat-error *ngIf=" updateform.controls['desc3statistics'].hasError('required')">
+              desc3Statistics is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>newsTitle</mat-label>
+          <input type="text"  matInput formControlName="newstitle" [(ngModel)]="p_data.newstitle" placeholder="newsTitle"/>
+            <mat-error *ngIf=" updateform.controls['newstitle'].hasError('required')">
+              newsTitle is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-label>newsImage1</mat-label>
+          <input type="file" #file  [(ngModel)]="p_data.newsimage1" (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+        
+            <mat-label>newsImage2</mat-label>
+          <input type="file" #file   [(ngModel)]="p_data.newsimage2" (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>
+               
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          
+            <mat-label>newsImage3</mat-label>
+          <input type="file" #file  [(ngModel)]="p_data.newsimage3" (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>       
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>newsdesc1</mat-label>
+          <input type="text" matInput formControlName="newsdesc1" [(ngModel)]="p_data.newsdesc1" placeholder="newsdesc1"/>
+            <mat-error *ngIf=" updateform.controls['newsdesc1'].hasError('required')">
+              newsdesc1 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>newsdesc2</mat-label>
+          <input type="text"  matInput formControlName="newsdesc2" [(ngModel)]="p_data.newsdesc2" placeholder="newsdesc2"/>
+            <mat-error *ngIf=" updateform.controls['newsdesc2'].hasError('required')">
+              newsdesc2 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>newsdesc3</mat-label>
+          <input type="text"  matInput formControlName="newsdesc3" [(ngModel)]="p_data.newsdesc3" placeholder="newsdesc3"/>
+            <mat-error *ngIf=" updateform.controls['newsdesc3'].hasError('required')">
+              newsdesc3 is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+          
+           </form>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="saveupdateData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+      </mat-dialog-actions>
+    </ng-template>
+  
+      <!--Delete Form-->
+      <ng-template #callDeleteTest>
+        <h2>Are You Sure You Want To Delete Yhis Item ?</h2>
+        <button mat-dialog-close="yes">YES</button>
+        <button mat-dialog-close="no">NO</button>
+        </ng-template>
+       

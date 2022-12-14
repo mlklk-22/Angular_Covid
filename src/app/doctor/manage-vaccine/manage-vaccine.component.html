@@ -1,0 +1,128 @@
+<app-sidebar></app-sidebar>
+
+
+<main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage Vaccine</h1>
+<div class="card border-0 shadow mb-4">
+<div class="card-body">
+    <form class="form-inline" style="margin-top:2%; margin-left: 30%;">
+        <div class="form-group mx-sm-3 mb-2">
+        <label for="inputText" class="sr- only"  >Sarech : </label>
+
+        <input type="number" class="form-control" placeholder="search.." [value]="num" (change)="searchInput($event)" >
+        </div> 
+        
+            <button type="submit"
+        type="button" class="btn btn-outline-danger"  
+                (click)="Search()">Search</button>
+            </form>
+            <br><br>
+                     <div class="table-responsive">
+              <table class="table table-centered table-nowrap mb-0 rounded">
+                <thead class="table-danger">
+            <tr>
+                <th class="border-0">id</th>
+
+                <th class="border-0">Name</th>
+                <th class="border-0">Num Vaccines</th>
+                <th class="border-0">VaccineName</th>
+                <th class="border-0">Update</th>
+                <!-- <th class="border-0">Date Dose tow</th> -->
+                
+                
+
+            </tr>
+            </thead>
+            <tbody *ngFor="let obj of user.User" >
+            <tr>
+                <td >
+                    {{obj.userid}}
+                </td>
+                <td >
+                    {{obj.fullname}}
+                </td>
+                <td>{{obj.numberofvaccines}}</td>
+                <td>{{obj.vaccinename}}</td>
+                
+                <!-- <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
+                <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td> -->
+                
+                <td  >
+                     <button  (click)="openUpdateDailog(obj)">Update</button>  
+                    <!-- <button (click)="openDeleteDailog(obj.userid)">Delete</button>   -->
+            
+                    </td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<ng-template #callUpdateDailog>
+
+    <mat-dialog-content class="mat-typography">
+        <form class="example-form" [formGroup]="updateForm" >
+           
+                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Number OF Vaccines</mat-label>
+                <input type="number" matInput formControlName="numberofvaccines"
+                [(ngModel)]="p_data.numberofvaccines">
+                
+                <mat-error *ngIf="updateForm.controls['numberofvaccines'].hasError('required')">
+                    Number OF Vaccines <strong>required</strong>
+                </mat-error>
+                </mat-form-field>
+                <br>
+    
+        </form>
+        <form class="example-form" [formGroup]="updateForm" >
+           
+            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> Vaccine Name</mat-label>
+            <select  matNativeControl formControlName="vaccinename" >
+                <option   value="sinopharm"> sinopharm</option>
+                <option value="Sinovac">Sinovac</option>
+                <option value="Pfizer">Pfizer</option>
+               
+              </select>
+            <mat-error *ngIf="updateForm.controls['vaccinename'].hasError('required')">
+                Vaccine Name <strong>required</strong>
+            </mat-error>
+            </mat-form-field>
+            <br>
+
+    </form>
+    
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="savedata()">Save</button>
+    </mat-dialog-actions>
+    
+    
+    
+    
+    </ng-template>
+
+
+    
+    <ng-template #callDelteDailog>
+        <h2>Are You Sure ?</h2>
+        <button mat-dialog-close="yes">YES</button>
+        <hr>
+        <button mat-dialog-close="cancel">CANCEL</button>
+        
+        </ng-template >

@@ -1,0 +1,444 @@
+<app-sidebar></app-sidebar>
+<main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage Footer</h1>
+                    <br><br>
+    <button (click)="openCreateDialog()" class="table-active">Create New</button>
+    <br><br>
+    
+    <div class="card border-0 shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+    <table class="table table-centered table-nowrap mb-0 rounded">
+        <thead class="table-danger">
+          <tr>
+             <th scope="col"> Name</th>
+             <th scope="col">title1</th >
+             <th scope="col"> link1title1 </th >
+             <th scope="col"> link2title1 </th >
+             <th scope="col"> link3title1 </th >
+             <th scope="col"> link4title1 </th >
+             <th scope="col"> title2 </th >
+             <th scope="col"> desctitle2 </th >
+             <th scope="col"> title3 </th >
+             <th scope="col"> link1title3 </th >
+             <th scope="col"> link2title3 </th >
+             <th scope="col"> link3title3 </th >
+             <th scope="col"> link4title3 </th >
+             <th scope="col"> title4 </th >
+             <th scope="col"> link1title4 </th >
+             <th scope="col"> link2title4 </th >
+             <th scope="col"> link3title4 </th >
+             <th scope="col"> link4title4 </th >
+          </tr>
+        </thead>
+        <tbody *ngFor="let obj of footer.allFooter">
+          <tr>
+            <td>{{obj.title1}}</td>
+            <td>{{obj.link1title1}}</td>
+            <td>{{obj.link2title1}}</td>
+            <td>{{obj.link3title1}}</td>
+            <td>{{obj.link4title1}}</td>
+            <td>{{obj.title2}}</td>
+            <td>{{obj.desctitle2}}</td>
+            <td>{{obj.title3}}</td>
+            <td>{{obj.link1title3}}</td>
+            <td>{{obj.link2title3}}</td>
+            <td>{{obj.link3title3}}</td>
+            <td>{{obj.link4title3}}</td>
+            <td>{{obj.title4}}</td>
+            <td>{{obj.link1title4}}</td>
+            <td>{{obj.link2title4}}</td>
+            <td>{{obj.link3title4}}</td>
+            <td>{{obj.link4title4}}</td>      
+    
+            <div>
+                <button (click)="openUpdateDialog(obj)"  style=" margin-right:10%; "class="table-active" > Update</button>
+                <br><br>
+                <button (click)="openDeleteDialog(obj.footerid)"  style="  margin-right:10%; "  class="table-active"> Delete</button> 
+           </div>
+     </tr>
+          
+    <br>
+     
+    
+        </tbody>
+      </table>
+      
+      <!--Create-->
+      <ng-template #callCreateDailog>    
+<h2 mat-dialog-title>Add User</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="example-form" [formGroup]="createForm" >
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Title1 </mat-label>
+          <input type="text" matInput formControlName="title1" placeholder="Title1">
+          
+          <mat-error *ngIf="createForm.controls['title1'].hasError('required')">
+            title1  <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link1title1</mat-label>
+            <input type="text" matInput formControlName="link1title1" placeholder="link1title1">
+            
+            <mat-error *ngIf="createForm.controls['link1title1'].hasError('required')">
+            link1title1 <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link2title1</mat-label>
+            <input type="text" matInput formControlName="link2title1" placeholder="link2title1">
+            
+            <mat-error *ngIf="createForm.controls['link2title1'].hasError('required')">
+                link2title1 <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link3title1</mat-label>
+            <input type="text" matInput formControlName="link3title1" placeholder="link3title1">
+            
+            <mat-error *ngIf="createForm.controls['link3title1'].hasError('required')">
+                link3title1  <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link4title1</mat-label>
+            <input type="text" matInput formControlName="link4title1" placeholder="link4title1">
+            
+            <mat-error *ngIf="createForm.controls['link4title1'].hasError('required')">
+                link4title1 <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title2</mat-label>
+            <input type="text" matInput formControlName="title2" placeholder="title2">
+            
+            <mat-error *ngIf="createForm.controls['title2'].hasError('required')">
+                title2 <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>description title2</mat-label>
+            <input type="text" matInput formControlName="desctitle2" placeholder="desctitle2">
+            
+            <mat-error *ngIf="createForm.controls['desctitle2'].hasError('required')">
+                desctitle2 id <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title2</mat-label>
+            <input type="text" matInput formControlName="title3" placeholder="title3">
+            
+            <mat-error *ngIf="createForm.controls['title3'].hasError('required')">
+                title3 id <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link1title3</mat-label>
+            <input type="text" matInput formControlName="link1title3" placeholder="link1title3">
+            
+            <mat-error *ngIf="createForm.controls['link1title3'].hasError('required')">
+                link1title3 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link2title3</mat-label>
+            <input type="text" matInput formControlName="link2title3" placeholder="link2title3">
+            
+            <mat-error *ngIf="createForm.controls['link2title3'].hasError('required')">
+                link2title3 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link3title3</mat-label>
+            <input type="text" matInput formControlName="link3title3" placeholder="link3title3">
+            
+            <mat-error *ngIf="createForm.controls['link3title3'].hasError('required')">
+                link3title3 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link4title3</mat-label>
+            <input type="text" matInput formControlName="link4title3" placeholder="link4title3">
+            
+            <mat-error *ngIf="createForm.controls['link4title3'].hasError('required')">
+                link4title3 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Title4</mat-label>
+            <input type="text" matInput formControlName="title4" placeholder="title4">
+            
+            <mat-error *ngIf="createForm.controls['title4'].hasError('required')">
+                title4 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link1title4</mat-label>
+            <input type="text" matInput formControlName="link1title4" placeholder="link1title4">
+            
+            <mat-error *ngIf="createForm.controls['link1title4'].hasError('required')">
+                link1title4 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link2title4</mat-label>
+            <input type="text" matInput formControlName="link2title4" placeholder="link2title4">
+            
+            <mat-error *ngIf="createForm.controls['link2title4'].hasError('required')">
+                link2title4 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link3title4</mat-label>
+            <input type="text" matInput formControlName="link3title4" placeholder="link3title4">
+            
+            <mat-error *ngIf="createForm.controls['link3title4'].hasError('required')">
+                link3title4 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>link4title4</mat-label>
+            <input type="text" matInput formControlName="link4title4" placeholder="link4title4">
+            
+            <mat-error *ngIf="createForm.controls['link4title4'].hasError('required')">
+                link4title4 is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="savedata()">Save</button>
+</mat-dialog-actions>
+      </ng-template>
+
+                    <!--Update-->
+      <ng-template #callUpdateDailog>
+
+        <mat-dialog-content class="mat-typography">
+            <form class="example-form" [formGroup]="updateForm" >
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> Title1 </mat-label>
+                    <input type="text" matInput formControlName="title1" [(ngModel)]="p_data.title1" placeholder="Title1">
+                    
+                    <mat-error *ngIf="createForm.controls['title1'].hasError('required')">
+                      title1  <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link1title1</mat-label>
+                      <input type="text" matInput formControlName="link1title1" [(ngModel)]="p_data.link1title1" placeholder="link1title1">
+                      
+                      <mat-error *ngIf="createForm.controls['link1title1'].hasError('required')">
+                      link1title1 <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+          
+          
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link2title1</mat-label>
+                      <input type="text" matInput formControlName="link2title1" [(ngModel)]="p_data.link2title1" placeholder="link2title1">
+                      
+                      <mat-error *ngIf="createForm.controls['link2title1'].hasError('required')">
+                          link2title1 <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link3title1</mat-label>
+                      <input type="text" matInput formControlName="link3title1" [(ngModel)]="p_data.link3title1" placeholder="link3title1">
+                      
+                      <mat-error *ngIf="createForm.controls['link3title1'].hasError('required')">
+                          link3title1  <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link4title1</mat-label>
+                      <input type="text" matInput formControlName="link4title1" [(ngModel)]="p_data.link4title1" placeholder="link4title1">
+                      
+                      <mat-error *ngIf="createForm.controls['link4title1'].hasError('required')">
+                          link4title1 <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Title2</mat-label>
+                      <input type="text" matInput formControlName="title2" [(ngModel)]="p_data.title2"  placeholder="title2">
+                      
+                      <mat-error *ngIf="createForm.controls['title2'].hasError('required')">
+                          title2 <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>description title2</mat-label>
+                      <input type="text" matInput formControlName="desctitle2" [(ngModel)]="p_data.desctitle2" placeholder="desctitle2">
+                      
+                      <mat-error *ngIf="createForm.controls['desctitle2'].hasError('required')">
+                          desctitle2 id <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Title2</mat-label>
+                      <input type="text" matInput formControlName="title3" [(ngModel)]="p_data.title3" placeholder="title3">
+                      
+                      <mat-error *ngIf="createForm.controls['title3'].hasError('required')">
+                          title3 id <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link1title3</mat-label>
+                      <input type="text" matInput formControlName="link1title3" [(ngModel)]="p_data.link1title3" placeholder="link1title3">
+                      
+                      <mat-error *ngIf="createForm.controls['link1title3'].hasError('required')">
+                          link1title3 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link2title3</mat-label>
+                      <input type="text" matInput formControlName="link2title3" [(ngModel)]="p_data.link2title3" placeholder="link2title3">
+                      
+                      <mat-error *ngIf="createForm.controls['link2title3'].hasError('required')">
+                          link2title3 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link3title3</mat-label>
+                      <input type="text" matInput formControlName="link3title3" [(ngModel)]="p_data.link3title3" placeholder="link3title3">
+                      
+                      <mat-error *ngIf="createForm.controls['link3title3'].hasError('required')">
+                          link3title3 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link4title3</mat-label>
+                      <input type="text" matInput formControlName="link4title3" [(ngModel)]="p_data.link4title3" placeholder="link4title3">
+                      
+                      <mat-error *ngIf="createForm.controls['link4title3'].hasError('required')">
+                          link4title3 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Title4</mat-label>
+                      <input type="text" matInput formControlName="title4" [(ngModel)]="p_data.link4title3" placeholder="title4">
+                      
+                      <mat-error *ngIf="createForm.controls['title4'].hasError('required')">
+                          title4 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link1title4</mat-label>
+                      <input type="text" matInput formControlName="link1title4" [(ngModel)]="p_data.link1title4" placeholder="link1title4">
+                      
+                      <mat-error *ngIf="createForm.controls['link1title4'].hasError('required')">
+                          link1title4 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link2title4</mat-label>
+                      <input type="text" matInput formControlName="link2title4" [(ngModel)]="p_data.link2title4"  placeholder="link2title4">
+                      
+                      <mat-error *ngIf="createForm.controls['link2title4'].hasError('required')">
+                          link2title4 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link3title4</mat-label>
+                      <input type="text" matInput formControlName="link3title4" [(ngModel)]="p_data.link3title4" placeholder="link3title4">
+                      
+                      <mat-error *ngIf="createForm.controls['link3title4'].hasError('required')">
+                          link3title4 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>link4title4</mat-label>
+                      <input type="text" matInput formControlName="link4title4" [(ngModel)]="p_data.link4title4" placeholder="link4title4">
+                      
+                      <mat-error *ngIf="createForm.controls['link4title4'].hasError('required')">
+                          link4title4 is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <br> 
+            </form>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveupdateData()">Save</button>
+        </mat-dialog-actions>
+        
+        
+        
+        
+        </ng-template>
+        
+        <ng-template #callDeleteDailog>
+
+            <h2> Are you want to delete this item ?</h2>
+            <button mat-dialog-close="yes">Yss</button>
+            <button mat-dialog-close="no" >NO</button>
+            
+              </ng-template>
+                    

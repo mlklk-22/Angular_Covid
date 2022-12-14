@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="hero-v1">
+            <div class="container">
+                <div 
+                  #mapContainer id="map">
+              </div>
+            </div>
+           
+                
+            </div>
+            <form class="form-inline" style="margin-left: 35%;">
+                  <div class="form-group mx-sm-3 mb-2">
+                  <label for="inputText" class="sr-`only" style="font-family: Fantasy	;">Center </label>
+                  <input  type="text" class="form-control" id="inputText" placeholder="Centre Name" [value]="name" (change)="inputValue($event)" (click)="search()" >
+                  </div>
+                  <button type="submit"
+              type="button" class="btn btn-outline-danger"  
+                      (click)="search()">Search</button>
+                  </form>         
+            <div class="content">
+              <div *ngFor="let obj of home.allVacciniationCentre" class="card">
+                    <div  class="icon"><i class="material-symbols-outlined">medical_services</i></div>
+                    <p class="title">{{obj.centername}}</p>
+                    <p class="text">{{obj.centeraddres}}</p>
+                  </div>
+        
+                  
+            </div>
+
+
+
+   <div class="payment" style="display:inline-block ;">
+    <img  src="assets/img/bmc-new-logo.webp"> >
+    <div id="payments"></div>
+   </div>
+
+    
+
+

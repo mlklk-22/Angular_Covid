@@ -1,0 +1,172 @@
+ <app-sidebar></app-sidebar>
+<!--<form class="form-inline" style="margin-top: 3%;">
+    <div class="form-group mx-sm-3 mb-2">
+   <label for="inputText" class="sr- only">Testmonial Name</label>
+   <input type="number" class="form-control" id="inputText" placeholder="VacciniationCentre" [value]="centerid" (change)="searchTestInput($event)">
+   </div> 
+    <button type="submit" (click)="search()" class="btn btn-success">Search</button>
+   </form>-->
+   <main class="content">
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <br><br>
+                    <h1 style="font-family: serif; margin-left:45% ;">Manage Vaccine Center</h1>
+                    <br><br>
+  <button (click)="openCreateDialog()" class="table-active">Create New</button>
+  <br><br>
+  <div class="card border-0 shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+<table class="table table-centered table-nowrap mb-0 rounded">
+    <thead class="table-danger">
+        <tr>
+          <th scope="col">CenterName</th>
+          <th scope="col">CenterUserCapacity</th>
+          <th scope="col">CenterVaccineCapacity</th>
+          <th scope="col">CenterAddress</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let obj of home.allVacciniationCentre">
+        <tr >
+          <td>{{obj.centername}}</td>
+          <td>{{obj.centerusercapacity}}</td>
+          <td>{{obj.centervaccinecapacity}}</td>
+          <td>{{obj.centeraddres}}</td>
+         
+          <button (click)="openUpdateDialog(obj)"  style="  margin-right:10%; " class="table-active" > Update</button>
+        
+          <button (click)="openDeleteDialog(obj.vaccineid)"  style="  margin-right:10%;  " class="table-active" > Delete</button> 
+        </tr> 
+       
+           
+          </tbody>
+    </table>
+   
+    <!--Create Form-->
+    <ng-template #callCrateTest>
+      <h2 mat-dialog-title>Add VacciniationCentre</h2>
+      <mat-dialog-content class="mat-typography">
+        <form [formGroup] = "createform">
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-form-field class="example-full-width" >
+                <mat-label>CenterName</mat-label>
+              <input type="text" matInput formControlName="centername" placeholder="centername"/>
+                <mat-error *ngIf="createform.controls['centername'].hasError('required')">
+                    CenterName is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>CenterUserCapacity</mat-label>
+            <input type="number" matInput formControlName="centerusercapacity" placeholder="centerusercapacity"/>
+              <mat-error *ngIf="createform.controls['centerusercapacity'].hasError('required')">
+                CenterUserCapacity is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>CenterVaccineCapacity</mat-label>
+            <input type="number" matInput formControlName="centervaccinecapacity" placeholder="centerusercapacity"/>
+              <mat-error *ngIf="createform.controls['centervaccinecapacity'].hasError('required')">
+                CenterVaccineCapacity is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>CenterAddress</mat-label>
+            <input type="text" matInput formControlName="centeraddres" placeholder="centeraddres"/>
+              <mat-error *ngIf="createform.controls['centeraddres'].hasError('required')">
+                CenterAddress is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+          
+           </form>
+      </mat-dialog-content>
+      <iframe
+      width="600"
+      height="450"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed">
+    </iframe>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="saveData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+      </mat-dialog-actions>
+    </ng-template>
+
+  
+  
+    <!--Update Form-->
+    <ng-template #callUpdateTest>
+      <h2 mat-dialog-title>Update VacciniationCentre</h2>
+      <mat-dialog-content class="mat-typography">
+        <form [formGroup] = "updateform">
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+             
+            <mat-form-field class="example-full-width" >
+                <mat-label>centername</mat-label>
+              <input type="text"  matInput formControlName="centername" placeholder="centername" [(ngModel)]="p_data.centername"/>
+                <mat-error *ngIf="updateform.controls['centername'].hasError('required')">
+                    centername is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+             
+            <mat-form-field class="example-full-width" >
+                <mat-label>centerusercapacity</mat-label>
+              <input type="number"  matInput formControlName="centerusercapacity" placeholder="centerusercapacity" [(ngModel)]="p_data.centerusercapacity"/>
+                <mat-error *ngIf="updateform.controls['centerusercapacity'].hasError('required')">
+                    centerusercapacity is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+             
+            <mat-form-field class="example-full-width" >
+                <mat-label>centervaccinecapacity</mat-label>
+              <input type="number"  matInput formControlName="centervaccinecapacity" placeholder="centervaccinecapacity" [(ngModel)]="p_data.centervaccinecapacity"/>
+                <mat-error *ngIf="updateform.controls['centervaccinecapacity'].hasError('required')">
+                    centervaccinecapacity is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+             
+            <mat-form-field class="example-full-width" >
+                <mat-label>centeraddres</mat-label>
+              <input type="text"  matInput formControlName="centeraddres" placeholder="centeraddres" [(ngModel)]="p_data.centeraddres"/>
+                <mat-error *ngIf="updateform.controls['centeraddres'].hasError('required')">
+                    centeraddres is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+          
+           </form>
+      </mat-dialog-content>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button (click)="saveupdateData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+      </mat-dialog-actions>
+    </ng-template>
+  
+      <!--Delete Form-->
+      <ng-template #callDeleteTest>
+        <h2>Are You Sure You Want To Delete Yhis Item ?</h2>
+        <button mat-dialog-close="yes">YES</button>
+        <br>
+        <button mat-dialog-close="no">NO</button>
+        </ng-template>
+    
