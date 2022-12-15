@@ -115,7 +115,7 @@ uploadAttachment(file:FormData){
 
 updateUser(body:any){
   debugger
-  body.imageName=this.display_image;
+  body.image=this.display_image;
 
   this.spinner.show();
   debugger

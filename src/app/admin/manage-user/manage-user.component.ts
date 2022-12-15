@@ -40,7 +40,15 @@ export class ManageUserComponent implements OnInit{
   {
   this.dialog.open(CreateUserComponent)
   }
-
+uploadfile(file:any)
+  {
+    if(file.length==0)
+    return;
+    let fileToUpload=<File>file[0]
+    const formdata =new FormData();
+    formdata.append('file',fileToUpload,fileToUpload.name);
+    this.user.uploadAttachment(formdata);
+  }
   p_data :any={};
   openUpdateDailog(obj:any)
   {
@@ -48,7 +56,6 @@ export class ManageUserComponent implements OnInit{
       userid:obj.userid,
       fullname:obj.fullname,
       username:obj.username,
-     
       phonenumber:obj.phonenumber,
       age:obj.age,
       numberofvaccines:obj.numberofvaccines,
@@ -60,6 +67,7 @@ export class ManageUserComponent implements OnInit{
 
   }
   this.updateForm.controls['userid'].setValue(this.p_data.userid);
+  this.updateForm.controls['image'].setValue(this.p_data.image);
   this.updateForm.controls['roleid'].setValue(this.p_data.roleid);
 
   this.dialog.open(this.callUpdateDailog);
@@ -76,15 +84,7 @@ export class ManageUserComponent implements OnInit{
   }
 
  
-  uploadfile(file:any)
-  {
-    if(file.length==0)
-    return;
-    let fileToUpload=<File>file[0]
-    const formdata =new FormData();
-    formdata.append('file',fileToUpload,fileToUpload.name);
-    this.user.uploadAttachment(formdata);
-  }
+  
 
   openDeleteDailog(id:number)
   {
