@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   
   }
-  siteKey:string="6LeWKnEjAAAAAEcVipIDQ2eyUbkyqu-JnIyhGs_S";
+  // siteKey:string="6LeWKnEjAAAAAEcVipIDQ2eyUbkyqu-JnIyhGs_S";
   submit(){
       this.auth.submit(this.username,this.password);
     }

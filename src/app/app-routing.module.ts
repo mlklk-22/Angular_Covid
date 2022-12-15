@@ -50,14 +50,14 @@ const routes: Routes = [
   {
      path:'managedoctor',
      loadChildren:()=>DoctorModule,
-     canActivate:[AuthorizationGuard]
+    // canActivate:[AuthorizationGuard]
 
 
   },
   {
     path:'userdashbord',
     loadChildren:()=>UserdashbordModule,
-    canActivate:[AuthorizationGuard]
+    //canActivate:[AuthorizationGuard]
 
   }
 

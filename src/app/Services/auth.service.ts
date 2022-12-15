@@ -16,17 +16,6 @@ export class AuthService {
   constructor(private spinner:NgxSpinnerService ,private home:HomeService,private toster:ToastrService,private http:HttpClient,private router:Router ) { }
 
   submit(username:any , password:any){
-    console.log('hello from auth ');
-    // console.log(email.value);
-    // console.log(password.value);
-
-          // var body={
-                     
-          // username: username.value.toString(),
-          // password: password.value.toString()
-              
-          // };
-
           var body = {
             username: username.value.toString(),
             password: password.value.toString()
@@ -38,16 +27,6 @@ export class AuthService {
           const requestOptions = {
             headers: new HttpHeaders(headerDic)
           }
-
-          // const headerDic={
-          //   'Content-Type':'application/json',
-          //   'Accept':'application/json'
-          // };
-
-          // const requestOptions={
-          //   headers:new HttpHeaders(headerDic)
-          // };
-          
           debugger
           this.http.post('https://localhost:44352/api/JWT/',body,requestOptions).subscribe((resp:any)=>{            
           debugger  
@@ -75,17 +54,6 @@ export class AuthService {
             } ,err=>{ 
             this.toster.error(err.message.err.status);
             })
-          // debugger
-          //     this.spinner.show();
-          //   this.http.get('https://localhost:44352/api/useraccount').subscribe((resp: any) => {
-          //     console.log(resp);
-          //     debugger
-          //      this.spinner.hide();
-          //     this.toster.show('Data Retrive')
-          //   }, err => {
-          //     this.spinner.hide();
-          //     this.toster.error('something wrong');
-          //   })
           }
 
 

@@ -50,7 +50,7 @@ submit(){
   ngOnInit(): void {
     
    } 
-   siteKey:string="6LeWKnEjAAAAAEcVipIDQ2eyUbkyqu-JnIyhGs_S";
+  //  siteKey:string="6LeWKnEjAAAAAEcVipIDQ2eyUbkyqu-JnIyhGs_S";
 
    matchError(){
     if(this.registerForm.controls['password'].value==
