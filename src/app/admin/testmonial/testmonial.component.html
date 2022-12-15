@@ -26,12 +26,16 @@
   <thead class="table-danger">
            <tr>
              <th scope="col">Message</th>
+             <th scope="col">Image</th>
+             <th scope="col">Status</th>
              <th scope="col">UserId</th>
            </tr>
          </thead>
          <tbody>
            <tr *ngFor="let obj of home.allTestmonial">
              <td>{{obj.message}}</td>
+             <td><img src="../../../assets/images/{{obj.image}}" width="70" height="80" alt="My Image"></td>
+             <td>{{obj.status}}</td>
              <td>{{obj.userid}}</td>
               
                <button (click)="openUpdateDialog(obj)"  class="table-active"   >Update</button>
@@ -55,9 +59,19 @@
                    </mat-error>    
              </mat-form-field>
              </div>
-             
+             <input type="file" #file (change)="uploadfile(file.files)" formControlName="" placeholder="image">
+             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Status</mat-label>
+              <input type="text"  matInput formControlName="status" placeholder="status"/>
+                <mat-error *ngIf="createform.controls['status'].hasError('required')">
+                  status is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
               </form>
          </mat-dialog-content>
+
          <mat-dialog-actions align="end">
            <button mat-button mat-dialog-close>Cancel</button>
            <button mat-button (click)="saveData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
@@ -80,6 +94,17 @@
                    </mat-error>    
              </mat-form-field>
              </div>
+             <input type="file" #file (change)="uploadfile(file.files)" [(ngModel)]="p_data.image" placeholder="image">
+             <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <mat-form-field class="example-full-width" >
+                <mat-label>Status</mat-label>
+              <input type="text"  matInput formControlName="status"  [(ngModel)]="p_data.status" placeholder="status"/>
+                <mat-error *ngIf="createform.controls['status'].hasError('required')">
+                  status is <strong>required</strong>
+                </mat-error>    
+          </mat-form-field>
+          </div>
+
              
               </form>
          </mat-dialog-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { F } from 'chart.js/dist/chunks/helpers.core';
 import { HomeService } from 'src/app/Services/home.service';
 
 @Component({
@@ -20,11 +21,15 @@ export class TestmonialComponent implements OnInit{
 
   createform :FormGroup= new FormGroup({
     message:new FormControl('', [Validators.required]),
+    image:new FormControl(),
+    status:new FormControl('', [Validators.required])
   })
   updateform :FormGroup= new FormGroup({
     idtest:new FormControl(),
     message:new FormControl('', [Validators.required]),
-    userid:new FormControl()
+    userid:new FormControl(),
+    image:new FormControl(),
+    status:new FormControl('', [Validators.required])
   })
   counter:number = 0;
 
@@ -39,13 +44,25 @@ export class TestmonialComponent implements OnInit{
      this.p_data={
        idtest:obj.idtest,
        message:obj.message,
-       userid:obj.userid
+       image:obj.image,
+       userid:obj.userid,
+       status:obj.status
      }
      this.updateform.controls['idtest'].setValue(this.p_data.idtest);
+     this.updateform.controls['image'].setValue(this.p_data.image);
      this.updateform.controls['userid'].setValue(this.p_data.userid);
  
      this.dialog.open(this.callUpdateTest);
    }
+   uploadfile(file:any)
+  {
+    if(file.length==0)
+    return;
+    let fileToUpload=<File>file[0]
+    const formdata =new FormData();
+    formdata.append('file',fileToUpload,fileToUpload.name);
+    this.home.uploadTestmonialImage(formdata);
+  }
    
    saveupdateData(){
      this.home.updateTestmonial(this.updateform.value);

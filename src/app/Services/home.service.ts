@@ -17,6 +17,7 @@ export class HomeService {
   allAbout:any[] = [];
   allFooter:any[] = [];
   logoImage:any;
+  testmonialImage:any;
   title1Im:any;
   new1Im:any;
   new2Im:any;
@@ -49,6 +50,7 @@ export class HomeService {
    }
 
    createTestmonial(body:any){
+     body.image = this.testmonialImage;
      this.spinner.show();
      this.http.post('https://localhost:44352/api/testmonial/', body).subscribe((resp)=>
      {
@@ -63,6 +65,7 @@ export class HomeService {
    }
 
    updateTestmonial(body:any){
+    body.image = this.testmonialImage;
      this.spinner.show();
      this.http.put('https://localhost:44352/api/testmonial', body).subscribe((resp)=>
      {
@@ -73,9 +76,17 @@ export class HomeService {
        this.toastr.error(err.message, err.status);
      })
    }
+   uploadTestmonialImage(file:FormData){
+    this.http.post('https://localhost:44352/api/Testmonial/UploadImage/', file).subscribe((resp:any)=>{
+    this.testmonialImage = resp.image;
+    }, err=>
+    {
+      this.toastr.error('Can\'t Upload Image');
+    });
+    }
    deleteTestmonial(id:number){
      this.spinner.show();
-     this.http.delete('https://localhost:44352/api/testmonial/Delete' + id).subscribe((resp)=>
+     this.http.delete('https://localhost:44352/api/testmonial/Delete/' + id).subscribe((resp)=>
      {
        this.spinner.hide();
        this.toastr.success('Deleted');
