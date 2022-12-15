@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TestmonialComponent } from '../admin/testmonial/testmonial.component';
 import { CenterComponent } from './center/center.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
 {
   path:'Certificate',
   component:CertificateComponent
+},
+{
+  path:'testmonial',
+  component:TestmonialComponent
 },
 ];
 
