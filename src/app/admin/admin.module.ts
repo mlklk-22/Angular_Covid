@@ -25,6 +25,8 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { UserVaccineReportComponent } from './user-vaccine-report/user-vaccine-report.component';
 import { VaccinaiationCnterComponent } from './vaccinaiation-cnter/vaccinaiation-cnter.component';
 import { ManageFooterComponent } from './manage-footer/manage-footer.component';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { ManageFooterComponent } from './manage-footer/manage-footer.component';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-  ]
+    MatSelectModule
+    ]
 })
 export class AdminModule { }

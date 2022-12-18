@@ -6,6 +6,7 @@ import { CertificateComponent } from './certificate/certificate.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeUaerComponent } from './home-uaer/home-uaer.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { UserTestmonialComponent } from './user-testmonial/user-testmonial.component';
 import { YourReservationComponent } from './your-reservation/your-reservation.component';
 
 const routes: Routes = [
@@ -36,7 +37,7 @@ const routes: Routes = [
 },
 {
   path:'testmonial',
-  component:TestmonialComponent
+  component:UserTestmonialComponent
 },
 ];
 

@@ -69,6 +69,15 @@
                 </mat-error>    
           </mat-form-field>
           </div>
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>User Id</mat-label>
+            <input type="text"  matInput formControlName="userid" placeholder="userid"/>
+              <mat-error *ngIf="createform.controls['userid'].hasError('required')">
+                userid is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
               </form>
          </mat-dialog-content>
 
@@ -98,12 +107,26 @@
              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
               <mat-form-field class="example-full-width" >
                 <mat-label>Status</mat-label>
-              <input type="text"  matInput formControlName="status"  [(ngModel)]="p_data.status" placeholder="status"/>
-                <mat-error *ngIf="createform.controls['status'].hasError('required')">
+                <mat-select  matNativeControl formControlName="status" [(ngModel)]="p_data.image">
+                  <mat-option value="accept">Accept</mat-option>
+                  <mat-option value="reject">Reject</mat-option>
+                </mat-select>
+                  <mat-error *ngIf="createform .controls['status'].hasError('required')">
                   status is <strong>required</strong>
                 </mat-error>    
           </mat-form-field>
           </div>
+
+          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <mat-form-field class="example-full-width" >
+              <mat-label>User Id</mat-label>
+            <input type="text"  matInput formControlName="userid"  [(ngModel)]="p_data.userid" placeholder="userid"/>
+              <mat-error *ngIf="createform.controls['userid'].hasError('required')">
+                userid is <strong>required</strong>
+              </mat-error>    
+        </mat-form-field>
+        </div>
+          
 
              
               </form>

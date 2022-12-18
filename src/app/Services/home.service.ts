@@ -48,9 +48,28 @@ export class HomeService {
      }
    );
    }
+   ShowAllTestmonials(){
+    this.spinner.show();
+    this.http.get('https://localhost:44352/api/testmonial/ShowAll').subscribe((resp:any)=>
+    {
+     this.allTestmonial = resp;
+     this.spinner.hide();
+     this.toastr.success('All Testmonials');
+   },
+   err=>
+   {
+   this.spinner.hide();
+   this.toastr.error(err.message, err.status);
+   }
+ );
+ }
 
    createTestmonial(body:any){
      body.image = this.testmonialImage;
+     body.status = 'Pending';
+     var r = localStorage.getItem('ID');
+     let m:number = +r;
+     body.userid = m;     
      this.spinner.show();
      this.http.post('https://localhost:44352/api/testmonial/', body).subscribe((resp)=>
      {

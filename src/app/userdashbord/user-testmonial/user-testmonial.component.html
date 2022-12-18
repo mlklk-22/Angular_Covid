@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<!-- MAIN -->
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+    <div class="hero-v1">
+        <div class="container">
+            <div class="row align-items-center">
+            <div class="col-lg-6 mr-auto text-center text-lg-left">
+                <span class="d-block subheading">Testmonial</span>
+                <h1 class="heading mb-3">We Are Here For You</h1>
+                <p class="mb-5">Your Feedback The Important Thing Leave A little Message For Us</p>
+                <p class="mb-4"><a (click)="openCreateDialog()" class="btn btn-primary">Message</a></p>
+    
+    
+    
+            </div>
+            <div class="col-lg-6">
+                <figure class="illustration">
+                <img src="./assets/user/images/illustration.png" alt="Image" class="img-fluid">
+                </figure>
+            </div>
+            <div class="col-lg-6"></div>
+            </div>
+        </div>
+        </div>
+        <ng-template #callCrateTest>
+            <h2 mat-dialog-title>Add Testmonial</h2>
+            <mat-dialog-content class="mat-typography">
+              <form [formGroup] = "createform">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                    <mat-form-field class="example-full-width" >
+                      <mat-label>Message</mat-label>
+                    <input type="text"  matInput formControlName="message" placeholder="Message"/>
+                      <mat-error *ngIf="createform.controls['message'].hasError('required')">
+                        Message is <strong>required</strong>
+                      </mat-error>    
+                </mat-form-field>
+                </div>
+                <label for="file">image</label>
+                <input type="file" #file (change)="uploadfile(file.files)" formControlName="" placeholder="image">
+                <!-- <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                 <mat-form-field class="example-full-width" >
+                   <mat-label>Status</mat-label>
+                 <input type="text"  matInput formControlName="status" placeholder="status"/>
+                   <mat-error *ngIf="createform.controls['status'].hasError('required')">
+                     status is <strong>required</strong>
+                   </mat-error>    
+             </mat-form-field>
+             </div> -->
+                 </form>
+            </mat-dialog-content>
+   
+            <mat-dialog-actions align="end">
+              <button mat-button mat-dialog-close>Cancel</button>
+              <button mat-button (click)="saveData()" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+            </mat-dialog-actions>
+          </ng-template>

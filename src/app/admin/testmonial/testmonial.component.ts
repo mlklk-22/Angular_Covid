@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { F } from 'chart.js/dist/chunks/helpers.core';
 import { HomeService } from 'src/app/Services/home.service';
+  
 
 @Component({
   selector: 'app-testmonial',
@@ -21,6 +22,7 @@ export class TestmonialComponent implements OnInit{
 
   createform :FormGroup= new FormGroup({
     message:new FormControl('', [Validators.required]),
+    userid:new FormControl(),
     image:new FormControl(),
     status:new FormControl('', [Validators.required])
   })

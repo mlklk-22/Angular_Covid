@@ -13,6 +13,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.home.getAllAbout();
+    this.home.ShowAllTestmonials();
 
   }
 

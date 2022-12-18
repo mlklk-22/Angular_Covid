@@ -11,7 +11,7 @@ import { HomeUaerComponent } from './home-uaer/home-uaer.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CenterComponent } from './center/center.component';
 import { CertificateComponent } from './certificate/certificate.component';
-import { TestmonialComponent } from './testmonial/testmonial.component';
+import { UserTestmonialComponent } from './user-testmonial/user-testmonial.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { TestmonialComponent } from './testmonial/testmonial.component';
     EditProfileComponent,
     CenterComponent,
     CertificateComponent,
-    TestmonialComponent
+    UserTestmonialComponent,
   ],
   imports: [
     CommonModule,
