@@ -25,7 +25,7 @@
       <thead class="table-danger">
         <tr>
           <th scope="col">imageLogo</th><th scope="col">littleTitle1</th>
-          <th scope="col">Title1</th><th scope="col">Title1</th>
+          <th scope="col">Title1</th>
           <th scope="col">descriptionTitle1</th><th scope="col">imageTitle1</th>
           <th scope="col">textButton</th><th scope="col">statisticsTitle</th>
           <th scope="col">descriptionStatistics</th><th scope="col">desc1Statistics</th>
@@ -38,16 +38,17 @@
       </thead>
       <tbody>
         <tr *ngFor="let obj of home.allHome">
-            <th scope="col"><img src="../../../assets/images/{{obj.imagelogo}}" alt=""> </th>
+            <th scope="col"><img src="../../../assets/images/{{obj.imagelogo}}"> </th>
             <th scope="col">{{obj.littletitle1}}</th>
             <th scope="col">{{obj.title1}}</th>
-            <th scope="col">{{obj.descriptiontitle1}}</th><th scope="col">{{obj.imagetitle1}}</th>
+            <th scope="col">{{obj.descriptiontitle1}}</th>
+            <th scope="col"><img src="../../../assets/images/{{obj.imagetitle1}}"></th>
             <th scope="col">{{obj.textbutton}}</th>
             <th scope="col"><img src="../../../assets/images/{{obj.statisticstitle}}"></th>
             <th scope="col">{{obj.descriptionstatistics}}</th><th scope="col">{{obj.desc1statistics}}</th>
             <th scope="col">{{obj.desc2statistics}}</th><th scope="col">{{obj.desc3statistics}}</th>
             <th scope="col">{{obj.newstitle}}</th>
-            <th scope="col"><img src="../../../assets/images/{{obj.newsimage1}}"></th>
+            <th scope="col"><img src="./assets/images/{{obj.newsimage1}}"></th>
             <th scope="col"><img src="../../../assets/images/{{obj.newsimage2}}"></th>
             <th scope="col"><img src="../../../assets/images/{{obj.newsimage3}}"></th>
             <th scope="col">{{obj.newsdesc1}}</th> <th scope="col">{{obj.newsdesc2}}</th>
@@ -227,7 +228,7 @@
           <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           
               <mat-label>imagelogo</mat-label>
-            <input type="file" #file (change)="uploadimagelogo(file.files)" [(ngModel)]="p_data.imagelogo" placeholder="imagelogo"/>
+            <input type="file" #file (change)="uploadimagelogo(file.files)"  placeholder="imagelogo"/>
             </div>
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
@@ -258,7 +259,7 @@
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-label>imagetitle1</mat-label>
-          <input type="file" #file   [(ngModel)]="p_data.imagetitle1" (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>
+          <input type="file" #file    (change)="uploadimagetitle1(file.files)" placeholder="imagelogo"/>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >
@@ -325,18 +326,18 @@
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-label>newsImage1</mat-label>
-          <input type="file" #file  [(ngModel)]="p_data.newsimage1" (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>
+          <input type="file" #file  (change)="uploadnewsImage1(file.files)" placeholder="newsImage1"/>
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
         
             <mat-label>newsImage2</mat-label>
-          <input type="file" #file   [(ngModel)]="p_data.newsimage2" (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>
+          <input type="file" #file   (change)="uploadnewsImage2(file.files)" placeholder="newsImage2"/>
                
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           
             <mat-label>newsImage3</mat-label>
-          <input type="file" #file  [(ngModel)]="p_data.newsimage3" (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>       
+          <input type="file" #file (change)="uploadnewsImage3(file.files)" placeholder="newsImage3"/>       
       </div>
       <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
           <mat-form-field class="example-full-width" >

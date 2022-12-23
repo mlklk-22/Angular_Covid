@@ -23,14 +23,16 @@ export class VaccinaiationCnterComponent implements OnInit {
         centername: new FormControl('', [Validators.required]),
         centerusercapacity: new FormControl('', [Validators.required]),
         centervaccinecapacity: new FormControl('', [Validators.required]),
-        centeraddres: new FormControl('', [Validators.required]),
+        lat: new FormControl('', [Validators.required]),
+        lng: new FormControl('', [Validators.required])
   })
   updateform :FormGroup= new FormGroup({
         centerid: new FormControl(),
         centername: new FormControl('', [Validators.required]),
         centerusercapacity: new FormControl('', [Validators.required]),
         centervaccinecapacity: new FormControl('', [Validators.required]),
-        centeraddres: new FormControl('', [Validators.required]),
+        lat: new FormControl('', [Validators.required]),
+        lng: new FormControl('', [Validators.required]),
         vacCenterid: new FormControl()
   })
   counter:number = 0;
@@ -48,7 +50,8 @@ export class VaccinaiationCnterComponent implements OnInit {
         centername: obj.centername,
         centerusercapacity:obj.centerusercapacity,
         centervaccinecapacity:obj.centervaccinecapacity,
-        centeraddres:obj.centeraddres,
+        lat: obj.lat,
+        lng: obj.lng,
         vacCenterid: obj.vacCenterid
     }
     this.updateform.controls['centerid'].setValue(this.p_data.centerid);

@@ -25,7 +25,8 @@
           <th scope="col">CenterName</th>
           <th scope="col">CenterUserCapacity</th>
           <th scope="col">CenterVaccineCapacity</th>
-          <th scope="col">CenterAddress</th>
+          <th scope="col">Latitude</th>
+          <th scope="col">Langitude</th>
         </tr>
       </thead>
       <tbody *ngFor="let obj of home.allVacciniationCentre">
@@ -33,7 +34,8 @@
           <td>{{obj.centername}}</td>
           <td>{{obj.centerusercapacity}}</td>
           <td>{{obj.centervaccinecapacity}}</td>
-          <td>{{obj.centeraddres}}</td>
+          <td>{{obj.lat}}</td>
+          <td>{{obj.lng}}</td>
          
           <button (click)="openUpdateDialog(obj)"  style="  margin-right:10%; " class="table-active" > Update</button>
         
@@ -81,13 +83,22 @@
 
         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
             <mat-form-field class="example-full-width" >
-              <mat-label>CenterAddress</mat-label>
-            <input type="text" matInput formControlName="centeraddres" placeholder="centeraddres"/>
-              <mat-error *ngIf="createform.controls['centeraddres'].hasError('required')">
-                CenterAddress is <strong>required</strong>
+              <mat-label>Latitude</mat-label>
+            <input type="text" matInput formControlName="lat" placeholder="Latitdue"/>
+              <mat-error *ngIf="createform.controls['lat'].hasError('required')">
+                Latitude is <strong>required</strong>
               </mat-error>    
         </mat-form-field>
         </div>
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>Langitude</mat-label>
+          <input type="text" matInput formControlName="lng" placeholder="Langitude"/>
+            <mat-error *ngIf="createform.controls['lng'].hasError('required')">
+              Langitude is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
           
            </form>
       </mat-dialog-content>
@@ -143,16 +154,25 @@
                 </mat-error>    
           </mat-form-field>
           </div>
-          <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-             
-            <mat-form-field class="example-full-width" >
-                <mat-label>centeraddres</mat-label>
-              <input type="text"  matInput formControlName="centeraddres" placeholder="centeraddres" [(ngModel)]="p_data.centeraddres"/>
-                <mat-error *ngIf="updateform.controls['centeraddres'].hasError('required')">
-                    centeraddres is <strong>required</strong>
-                </mat-error>    
-          </mat-form-field>
-          </div>
+          
+        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+          <mat-form-field class="example-full-width" >
+            <mat-label>Latitude</mat-label>
+          <input type="text" matInput formControlName="lat" placeholder="Latitdue" [(ngModel)]="p_data.lat"/>
+            <mat-error *ngIf="createform.controls['lat'].hasError('required')">
+              Latitude is <strong>required</strong>
+            </mat-error>    
+      </mat-form-field>
+      </div>
+      <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+        <mat-form-field class="example-full-width" >
+          <mat-label>Langitude</mat-label>
+        <input type="text" matInput formControlName="lng" placeholder="Langitude" [(ngModel)]="p_data.lng"/>
+          <mat-error *ngIf="createform.controls['lng'].hasError('required')">
+            Langitude is <strong>required</strong>
+          </mat-error>    
+    </mat-form-field>
+    </div>
           
            </form>
       </mat-dialog-content>

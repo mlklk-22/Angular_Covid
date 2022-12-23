@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
+import { position } from 'html2canvas/dist/types/css/property-descriptors/position';
 import { ToastrService } from 'ngx-toastr';
 import { HomeService } from '../Services/home.service';
 import { VaccinesService } from '../Services/vaccines.service';
@@ -13,7 +14,12 @@ import { VaccinesService } from '../Services/vaccines.service';
 export class CenterComponent implements AfterViewInit  {
   result:any;
   adress:any;
-
+  @ViewChild('mapContainer', { static: false }) gmap: ElementRef 
+   fan:any[] =[];
+   latitude:number;
+   langitude:number;
+   center:string;
+   markers:any[]|undefined = [];
   constructor(public vaccines:VaccinesService,public home:HomeService,private toastr:ToastrService,private http:HttpClient) {
     render(
       {
@@ -29,69 +35,22 @@ export class CenterComponent implements AfterViewInit  {
 
         
       );
-
    }
+   ngOnInit(): void {
+    this.home.getAllVacciniationCentre();
+  }
+
    CenterAdress(){
     return this.http.get("https://localhost:44352/api/VaccinationCenter").toPromise().then((data)=>{
       return data
     })
   }
-   
-  ngOnInit(): void {
-    this.home.getAllVacciniationCentre();
-
-    this.CenterAdress().then((res)=>{
-      this.result=res;
-      console.log(this.result)
   
-      this.adress=this.result.map((coin:any)=>coin.centeraddres);
-      console.log(this.adress)
-
-    })
-  }
-
-
-
-   @ViewChild('mapContainer', { static: false }) gmap: ElementRef 
-
-
-
-
    map: google.maps.Map;
    lat = 32.01698046202276; 
    lng = 35.869886335648424;
-   markers:any[] = [
-     {
-       position: new google.maps.LatLng(32.022247231004584, 35.8644982230424),
-       title: "Marker 1"
-     },
-     {
-       position: new google.maps.LatLng(32.02610529058295, 35.866810706305166),
-       title: "Center 2"
-     },
-     {
-       position: new google.maps.LatLng(32.013878230256424, 35.87187970310129),
-       title: "Center 3"
-     },
-     {
-      position: new google.maps.LatLng(32.012820578199765, 35.88042548987068),
-      title: "Center 4"
-    }
-   ];
- 
-   // public printToConsole():void{
-   //   for (let i=0; i < 10; i++){
-   //     var markobj = {
-   //     position: new google.maps.LatLng(32.01786157064824, 35.863752230581575),
-   //       title: ''
-   //     }
-   //     this.markers.push(markobj);
-   //   }
-   // }
- 
    
- 
- 
+  
    coordinates = new google.maps.LatLng(this.lat, this.lng);
  
    mapOptions: google.maps.MapOptions = {
@@ -125,25 +84,42 @@ export class CenterComponent implements AfterViewInit  {
  this.loadAllMarkers();
    }
  loadAllMarkers(): void {
-   this.markers.forEach(markerInfo => {
+  this.CenterAdress().then((res)=>{
+    this.result=res;
+  for (let index = 0; index < this.result.length; index++) {
+       this.latitude =  +this.result[index].lat;
+       this.langitude =  +this.result[index].lng;
+       this.center = this.result[index].centername;
+    this.markers.push({position: new google.maps.LatLng(this.latitude, this.langitude)
+                  ,title: this.center})
+  }
+   
+    //console.log(this.fan)
+    // this.adress=this.result.map((coin:any)=>coin.centeraddres);
+    // console.log(this.adress)console.log(this.markers)
+   this.markers.forEach((markerInfo) => {
      //Creating a new marker object
      const marker = new google.maps.Marker({...markerInfo
      });
- 
-     //creating a new info window with markers info
-     const infoWindow = new google.maps.InfoWindow({
+      const infoWindow = new google.maps.InfoWindow({
        content: marker.getTitle()
      });
- 
-     //Add click event to open info window on marker
-     marker.addListener("click", () => {
+      marker.addListener("click", () => {
        infoWindow.open(marker.getMap(), marker);
      });
- 
-     //Adding marker to google map
-     marker.setMap(this.map);
+  marker.setMap(this.map);
    });
  
+  })  
+  
+ 
+     //creating a new info window with markers info
+    
+ 
+     //Add click event to open info window on marker
+    
+     //Adding marker to google map
+    
  }
  name:any='';
 

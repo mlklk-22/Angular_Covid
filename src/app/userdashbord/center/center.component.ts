@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { ToastrService } from 'ngx-toastr';
@@ -10,8 +11,13 @@ import { VaccinesService } from 'src/app/Services/vaccines.service';
   styleUrls: ['./center.component.css']
 })
 export class CenterComponent implements OnInit {
-
-  constructor(public vaccines:VaccinesService,public home:HomeService,private toastr:ToastrService) {
+  result:any;
+  fan:any[] =[];
+  latitude:number;
+  langitude:number;
+  center:string;
+  markers:any[]|undefined = [];
+  constructor(public vaccines:VaccinesService,public home:HomeService,private toastr:ToastrService, private http:HttpClient) {
 
     
     render(
@@ -37,28 +43,15 @@ export class CenterComponent implements OnInit {
   ngOnInit(): void {
   return this.home.getAllVacciniationCentre();
 }
+CenterAdress(){
+  return this.http.get("https://localhost:44352/api/VaccinationCenter").toPromise().then((data)=>{
+    return data
+  })
+}
 
   map: google.maps.Map;
   lat = 32.01698046202276; 
   lng = 35.869886335648424;
-  markers:any[] = [
-    {
-      position: new google.maps.LatLng(32.022247231004584, 35.8644982230424),
-      title: "Marker 1"
-    },
-    {
-      position: new google.maps.LatLng(32.02610529058295, 35.866810706305166),
-      title: "Center 2"
-    },
-    {
-      position: new google.maps.LatLng(32.013878230256424, 35.87187970310129),
-      title: "Center 3"
-    },
-    {
-     position: new google.maps.LatLng(32.012820578199765, 35.88042548987068),
-     title: "Center 4"
-   }
-  ];
 
 
   
@@ -96,6 +89,15 @@ this.marker.setMap(this.map);
 this.loadAllMarkers();
   }
 loadAllMarkers(): void {
+  this.CenterAdress().then((res)=>{
+    this.result=res;
+  for (let index = 0; index < this.result.length; index++) {
+       this.latitude =  +this.result[index].lat;
+       this.langitude =  +this.result[index].lng;
+       this.center = this.result[index].centername;
+    this.markers.push({position: new google.maps.LatLng(this.latitude, this.langitude)
+                  ,title: this.center})
+  }
   this.markers.forEach(markerInfo => {
     //Creating a new marker object
     const marker = new google.maps.Marker({...markerInfo
@@ -114,7 +116,7 @@ loadAllMarkers(): void {
     //Adding marker to google map
     marker.setMap(this.map);
   });
-
+});
 }
 name:any='';
 

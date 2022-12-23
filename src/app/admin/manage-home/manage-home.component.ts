@@ -81,11 +81,11 @@ export class ManageHomeComponent implements OnInit{
   }
   updateform :FormGroup= new FormGroup({
          homeid: new FormControl(),
-         imagelogo: new FormControl('', [Validators.required]),
+         imagelogo: new FormControl(),
          littletitle1: new FormControl('', [Validators.required]),
          title1 : new FormControl('', [Validators.required]),
          descriptiontitle1 : new FormControl('', [Validators.required]),
-         imagetitle1 : new FormControl('', [Validators.required]),
+         imagetitle1 : new FormControl(),
          textbutton : new FormControl('', [Validators.required]),
          statisticstitle : new FormControl('', [Validators.required]),
          descriptionstatistics : new FormControl('', [Validators.required]),
@@ -93,9 +93,9 @@ export class ManageHomeComponent implements OnInit{
          desc2statistics : new FormControl('', [Validators.required]),
          desc3statistics : new FormControl('', [Validators.required]),
          newstitle : new FormControl('', [Validators.required]),
-         newsimage1 : new FormControl('', [Validators.required]),
-         newsimage2 : new FormControl('', [Validators.required]),
-         newsimage3 : new FormControl('', [Validators.required]),
+         newsimage1 : new FormControl(),
+         newsimage2 : new FormControl(),
+         newsimage3 : new FormControl(),
          newsdesc1 : new FormControl('', [Validators.required]),
          newsdesc2 : new FormControl('', [Validators.required]),
          newsdesc3 : new FormControl('', [Validators.required])

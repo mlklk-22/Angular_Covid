@@ -10,7 +10,9 @@ export class HomeService {
 
   display_image:any;
   allTestmonial:any[] = [];
+  allTestmonialUsers:any[] = [];
   allVacciniationCentre:any=[{}];
+  centertitlecoordinate:any=[{}];
   totalCenters=0
 
   allHome:any[] = [];
@@ -52,7 +54,8 @@ export class HomeService {
     this.spinner.show();
     this.http.get('https://localhost:44352/api/testmonial/ShowAll').subscribe((resp:any)=>
     {
-     this.allTestmonial = resp;
+     this.allTestmonialUsers = resp;
+     console.log(this.allTestmonialUsers)
      this.spinner.hide();
      this.toastr.success('All Testmonials');
    },
@@ -200,6 +203,11 @@ export class HomeService {
               });
               }
     updateHome(body:any){
+      body.imagelogo = this.logoImage;
+      body.imagetitle1 = this.title1Im;
+      body.newsimage1 = this.new1Im;
+      body.newsimage2 = this.new2Im;
+      body.newsimage3 = this.new3Im;
       this.spinner.show();
       this.http.put('https://localhost:44352/api/home/', body).subscribe((resp)=>
       {
@@ -233,6 +241,7 @@ export class HomeService {
       this.http.get('https://localhost:44352/api/VaccinationCenter/').subscribe((resp:any)=>
       {
         this.spinner.hide();
+        this.centertitlecoordinate= [resp.centername];
         this.allVacciniationCentre = resp;
         this.toastr.success('All Vacciniation Centers');
       }, err=>

@@ -60,8 +60,8 @@
           </div>
   
           <div class="row">
-            <div class="col-lg-4" *ngFor="let obj of home.allTestmonial">
-              <div class="team">
+            <div class="col-lg-4" *ngFor="let obj of home.allTestmonial" >
+              <div class="team" *ngIf="obj.status == 'accept'">
                 <img src="./assets/images/{{obj.image}}" alt="Image" class="img-fluid">
                 <h3>{{obj.fullname}}</h3>
                 <p>{{obj.message}}</p>
