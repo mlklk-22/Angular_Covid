@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DoctorService } from 'src/app/Services/doctor.service';
 import { ReservationService } from 'src/app/Services/reservation.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ReservationService } from 'src/app/Services/reservation.service';
 })
 export class ReservationComponent implements OnInit {
   
-  constructor(private route:Router,public reservation:ReservationService ,private dialog: MatDialog) { }
+  constructor(private route:Router,public reservation:ReservationService ,private dialog: MatDialog, public doctor:DoctorService) { }
 @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any>
 @ViewChild('callDelteDailog') callDelteDailog!:TemplateRef<any>
 @ViewChild('callCreateDailog') callCreateDailog!:TemplateRef<any>
@@ -78,6 +79,8 @@ searchInputFromSecond(ev:any){
   })
   ngOnInit(): void {
     this.reservation.getall();
+    this.doctor.getALLUserReservation();
+
   }
   openCreateDialog(){
     this.dialog.open(this.callCreateDailog)

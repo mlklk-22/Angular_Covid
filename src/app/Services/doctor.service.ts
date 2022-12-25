@@ -7,14 +7,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
   providedIn: 'root'
 })
 export class DoctorService {
-  userReservation:any=[{}];
+  userReservation:any[]=[];
 
   userinfo:any=[{}];
   constructor(private http:HttpClient,private spinner :NgxSpinnerService ,private toastr:ToastrService) { }
 
   getALLUserReservation(){
     this.spinner.show();
-    this.http.get('https://localhost:44352/api/userReservation').subscribe((res)=>{
+    this.http.get('https://localhost:44352/api/userReservation').subscribe((res:any)=>{
       this.userReservation=res;
       this.spinner.hide();
       this.toastr.success('Data Retrieved!!');

@@ -56,6 +56,15 @@
                             <input class="form-control" type="text" matInput formControlName="massage">
                             <span class="select-arrow"></span>
                         </div>
+                        <div class="form-group">
+                            <span class="form-label">Vaccination Center</span>
+                            <select class="form-control"  matInput formControlName="centername">
+                                <option *ngFor="let obj of home.allVacciniationCentre" value="{{obj.centername}}">
+                                    {{obj.centername}}
+                                </option>
+                            </select>
+                            <span class="select-arrow"></span>
+                        </div>
                         <div class="form-btn">
                             <button class="submit-btn"(click)="saveCREATEData()" [mat-dialog-close]="true" cdkFocusInitial >Check availability</button>
                         </div>

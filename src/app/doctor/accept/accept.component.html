@@ -87,6 +87,7 @@
                   <th class="border-0">Num Vaccines</th>
                   <th class="border-0">Date Dose one</th>
                   <th class="border-0">Date Dose tow</th>
+                  <th class="border-0 ">Center Name</th>
                   <th class="border-0">Massage</th>
                   <th class="border-0 ">status</th>
                   <th class="border-0 ">Update</th>
@@ -102,10 +103,11 @@
                   <td>{{obj.numberofvaccines}}</td>
                   <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
                   <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td>
+                  <td>{{obj.centername}}</td>
                   <td>{{obj.massage}}</td>
                   <td>{{obj.status}}</td>
                   <td>
-                    <button  (click)="openUpdateDailog(obj.userid,obj.reserveid,obj.status,obj.massage,obj.actualdatedose1,obj.actualdatedose2)">Update</button> 
+                    <button  (click)="openUpdateDailog(obj.userid,obj.reserveid,obj.status,obj.massage,obj.actualdatedose1,obj.actualdatedose2, obj.centername)">Update</button> 
                     <!-- <button (click)="openDeleteDailog(obj.userid)">Delete</button>   -->
            
                    </td>

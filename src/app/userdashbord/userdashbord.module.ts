@@ -12,6 +12,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CenterComponent } from './center/center.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { UserTestmonialComponent } from './user-testmonial/user-testmonial.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserTestmonialComponent } from './user-testmonial/user-testmonial.compo
   imports: [
     CommonModule,
     UserdashbordRoutingModule,
-    SharedModule
+    SharedModule,
+    MatSelectModule
   ]
 })
 export class UserdashbordModule { }

@@ -48,23 +48,23 @@
 <table class="table table-centered  table-nowrap  rounded" style="margin-left: 20%;">
   <thead class="table-danger">
       <tr>
-    <th scope="col">
-      First Dose date
-    </th>
-    <th scope="col">
-      Secound Dose date
-    </th>
+    <th class="border-0">Name</th>
+    <th scope="col"> First Dose date</th>
+    <th scope="col">Secound Dose date</th>
+    <th class="border-0 ">Center Name</th>
     <th></th>
   </tr>
   </thead>
 
-  <tbody *ngFor="let obj of reservation.reservation" >
+  <tbody *ngFor="let obj of doctor.userReservation" >
     <tr>
+      <td>{{obj.fullname}}</td>
       <td>{{obj.actualdatedose1}}</td>
       <td>{{obj.actualdatedose2}}</td>
+      <td>{{obj.centername}}</td>
       <td> {{obj.Id}} </td>  
           <button (click)="openUpdateDailog(obj)"  class="table-active">Update</button>
-          <button (click)="openDelteDailog(obj.Id)" class="table-active">Delete</button>
+          <button (click)="openDelteDailog(obj.reserveid)" class="table-active">Delete</button>
         </tr>
   </tbody>
 </table>
@@ -103,7 +103,7 @@
 
 <ng-template #callDelteDailog>
 <h2>Are You Sure ></h2>
-<button mat-dialog-close="yes">YES</button>
+<button mat-dialog-close="yes">YES</button>&nbsp;
 <button mat-dialog-close="cancel">CANCEL</button>
 
 </ng-template >
