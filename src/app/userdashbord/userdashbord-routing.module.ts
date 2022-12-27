@@ -36,7 +36,7 @@ const routes: Routes = [
   component:CertificateComponent
 },
 {
-  path:'testmonial',
+  path:'usertestmonial',
   component:UserTestmonialComponent
 },
 ];

@@ -25,8 +25,8 @@
             </a>
          </div>
       </div>
-      <ul class="nav flex-column pt-3 pt-md-0">
-         <li class="nav-item"><a routerLink="/admin" class="nav-link d-flex align-items-center"><span class="sidebar-icon"><img src="assets/img/admin-panel.png" height="20" width="20" alt="Rich Logo"> </span><span class="mt-1 ms-1 sidebar-text">Admin Dashboard</span></a></li>
+      <ul class="nav flex-column pt-3 pt-md-0" *ngFor="let obj of user.User">
+         <li *ngIf="obj.roleid == 3" class="nav-item"><a routerLink="/admin" class="nav-link d-flex align-items-center"><span class="sidebar-icon"><img src="../../../assets/images/{{obj.image}}" height="20" width="20" alt="Rich Logo"> </span><span class="mt-1 ms-1 sidebar-text">Admin Dashboard</span></a></li>
           <li class="nav-item active">
             <a routerLink="/admin" class="nav-link">
                <span class="sidebar-icon"><img src= "assets/img/admin (1).png" height="20" width="20" alt="Rich Logo"> </span><span class="mt-1 ms-1 sidebar-text">Dashboard</span>
