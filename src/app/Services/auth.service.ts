@@ -55,7 +55,16 @@ export class AuthService {
             this.toster.error(err.message.err.status);
             })
           }
-
+          forgetPass(username:any , password:any, body:any){
+            this.spinner.show();
+            this.http.put('https://localhost:44352/api/JWT/forgetPass/' + username + '/' + password, body).subscribe((resp:any)=>{            
+            this.spinner.hide();
+            this.toster.success('Your Password Updated :)');
+              } ,err=>{ 
+              this.spinner.hide();
+              this.toster.error(err.message.err.status);
+              })
+            }
 
 checkuseroflogin (){
   if(localStorage.getItem('user')==null)

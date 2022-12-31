@@ -55,8 +55,46 @@ background-size: cover; ">
       <div class="d-grid"> <button (click)="submit()" class="btn btn-gray-800" [disabled]="!username.valid||!password.valid||!recaptcha.valid" >Login</button></div>
 
       <span class="fw-normal" >Not registered? <a (click)=" goToregister()"  class="fw-bold">Create account</a></span> 
+      <br>
+      <span class="fw-normal" >forget the Password ? <a (click)=" openUpdateDailog()"  class="fw-bold">Write a New :)</a></span> 
     </div>
   </div>
 </div>
 </div>
 </section>
+
+<ng-template #callUpdateDailog>
+
+  <mat-dialog-content class="mat-typography">
+      <form class="example-form" [formGroup]="updateForm" >
+          <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User Name</mat-label>
+              <input type="text" matInput formControlName="username">
+              
+              <mat-error *ngIf="updateForm.controls['username'].hasError('required')">
+                  User Name  <strong>required</strong>
+              </mat-error>
+              </mat-form-field>
+              <br>
+  
+              <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>New Password</mat-label>
+              <input type="text" matInput formControlName="password">
+              
+              <mat-error *ngIf="updateForm.controls['password'].hasError('required')">
+                  Password <strong>required</strong>
+              </mat-error>
+              </mat-form-field>
+      </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="editForgetPass()">Save</button>
+  </mat-dialog-actions>
+  
+  
+  
+  
+  </ng-template>
+  
+  
