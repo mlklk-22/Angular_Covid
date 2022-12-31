@@ -82,7 +82,7 @@
   <thead class="table-danger">
  
               <tr>
-                  
+                <th class="border-0">User Id</th>
                   <th class="border-0">Name</th>
                   <th class="border-0">Num Vaccines</th>
                   <th class="border-0">Date Dose one</th>
@@ -96,10 +96,8 @@
             </thead>
             <tbody *ngFor="let obj of doctor.userReservation" >
               <tr>
-                  
-                  <td >
-                    {{obj.fullname}}
-                  </td>
+                  <td>{{obj.userid}}</td>
+                  <td>{{obj.fullname}}</td>
                   <td>{{obj.numberofvaccines}}</td>
                   <td>{{obj.actualdatedose1 | date : 'fullDate'}}</td>
                   <td>{{obj.actualdatedose2 | date : 'fullDate'}}</td>

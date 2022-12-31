@@ -39,6 +39,50 @@ export class AuthorizationGuard implements CanActivate {
 
    
          }
+         else if(state.url.indexOf('managedoctor')>=0)
+          {
+           let user:any = localStorage.getItem('user');
+           if(user)
+           {
+           user=JSON.parse(user);  
+             if(user.Role == "2")
+               {
+                 this.toster.success('Welcome');
+                 return true;
+               }
+             else 
+               {
+                 this.toster.warning('Sorry , this page for Doctor');
+                 this.route.navigate(['security/login']);
+                 localStorage.clear();
+                 return false;
+               }
+           }
+
+   
+         }
+         else if(state.url.indexOf('userdashbord')>=0)
+          {
+           let user:any = localStorage.getItem('user');
+           if(user)
+           {
+           user=JSON.parse(user);  
+             if(user.Role == "1")
+               {
+                 this.toster.success('Welcome');
+                 return true;
+               }
+             else 
+               {
+                 this.toster.warning('Sorry , this page for User Have Account, Make Your Account!!');
+                 this.route.navigate(['security/login']);
+                 localStorage.clear();
+                 return false;
+               }
+           }
+
+   
+         }
          else{
           this.toster.warning('you are not user from db')
           return false;
@@ -53,3 +97,5 @@ export class AuthorizationGuard implements CanActivate {
      }
   
  
+//managedoctor
+//userdashbord
