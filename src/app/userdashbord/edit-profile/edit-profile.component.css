@@ -99,7 +99,7 @@ html {
   overflow-y: scroll;
 }
 body {
-  background: #eee url("https://i.imgur.com/eeQeRmk.png"); /* https://subtlepatterns.com/weave/ */
+background-color: rgb(242, 238, 246);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 62.5%;
   line-height: 1;

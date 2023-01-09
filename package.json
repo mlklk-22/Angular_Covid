@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@types/googlemaps": "^3.43.3",
-    "chart.js": "^4.0.1",
+    "chart.js": "^4.1.1",
     "creditcardpayments": "^1.0.3",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
-    "@angular/cli": "^14.0.6",
+    "@angular/cli": "^14.2.10",
     "@angular/compiler-cli": "^14.2.0",
     "@types/chart.js": "^2.9.37",
     "@types/jasmine": "~4.0.0",

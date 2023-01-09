@@ -29,6 +29,8 @@
              <th scope="col">Image</th>
              <th scope="col">Status</th>
              <th scope="col">UserId</th>
+             <th scope="col">Update</th>
+             <th scope="col">Delete</th>
            </tr>
          </thead>
          <tbody>
@@ -37,9 +39,12 @@
              <td><img src="../../../assets/images/{{obj.image}}" width="70" height="80" alt="My Image"></td>
              <td>{{obj.status}}</td>
              <td>{{obj.userid}}</td>
-              
-               <button (click)="openUpdateDialog(obj)"  class="table-active"   >Update</button>
-               <button  (click)="openDeleteDialog(obj.idtest)"  class="table-active">Delete</button> 
+              <td>             
+                  <button (click)="openUpdateDialog(obj)"  class="table-active"   >Update</button>
+              </td>
+              <td>             
+                  <button  (click)="openDeleteDialog(obj.idtest)"  class="table-active">Delete</button> 
+              </td>
            </tr>
              </tbody>
        </table>

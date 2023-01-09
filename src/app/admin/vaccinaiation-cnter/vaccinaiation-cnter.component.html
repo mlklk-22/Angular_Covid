@@ -27,6 +27,9 @@
           <th scope="col">CenterVaccineCapacity</th>
           <th scope="col">Latitude</th>
           <th scope="col">Langitude</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+
         </tr>
       </thead>
       <tbody *ngFor="let obj of home.allVacciniationCentre">
@@ -37,9 +40,12 @@
           <td>{{obj.lat}}</td>
           <td>{{obj.lng}}</td>
          
-          <button (click)="openUpdateDialog(obj)"  style="  margin-right:10%; " class="table-active" > Update</button>
-        
-          <button (click)="openDeleteDialog(obj.centerid)"  style="  margin-right:10%;  " class="table-active" > Delete</button> 
+         <td>    
+                <button (click)="openUpdateDialog(obj)"  style="  margin-right:10%; " class="table-active" > Update</button>
+         </td>
+<td>       
+     <button (click)="openDeleteDialog(obj.centerid)"  style="  margin-right:10%;  " class="table-active" > Delete</button> 
+</td>
         </tr> 
        
            

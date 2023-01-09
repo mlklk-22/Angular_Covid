@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { an } from 'chart.js/dist/chunks/helpers.core';
+// import { an } from 'chart.js/dist/chunks/helpers.core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { UserService } from 'src/app/Services/user.service';
 import { jsPDF } from "jspdf";
