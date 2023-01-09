@@ -27,9 +27,6 @@ import { TokenInterceptor } from 'src/Interceptor/token.Interceptor';
     AppComponent,
     HomeComponent,
     CenterComponent,
-
-    
-    
     AboutComponent,
     ProtectComponent,
     SymptomsComponent,

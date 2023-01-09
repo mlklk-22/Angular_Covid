@@ -6,13 +6,15 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { YourReservationComponent } from './your-reservation/your-reservation.component';
 import { SharedModule } from '../shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+// import { FooterComponent } from './footer/footer.component';
 import { HomeUaerComponent } from './home-uaer/home-uaer.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CenterComponent } from './center/center.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { UserTestmonialComponent } from './user-testmonial/user-testmonial.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FooterUserComponent } from './footer-user/footer-user.component';
 
 
 @NgModule({
@@ -20,12 +22,14 @@ import {MatSelectModule} from '@angular/material/select';
     ReservationComponent,
     YourReservationComponent,
     NavbarComponent,
-    FooterComponent,
+    // FooterComponent,
     HomeUaerComponent,
     EditProfileComponent,
     CenterComponent,
     CertificateComponent,
     UserTestmonialComponent,
+    ContactUsComponent,
+    FooterUserComponent,
   ],
   imports: [
     CommonModule,

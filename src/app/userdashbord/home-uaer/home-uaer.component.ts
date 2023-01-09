@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { HomeService } from 'src/app/Services/home.service';
 
 @Component({
   selector: 'app-home-uaer',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUaerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toastr:ToastrService,public home:HomeService) { }
 
   ngOnInit(): void {
+    this.home.getAllHome();
+    this.home.getAllAbout();
+
   }
 
 }

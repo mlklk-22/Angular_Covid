@@ -59,10 +59,7 @@ const routes: Routes = [
     loadChildren:()=>UserdashbordModule,
     canActivate:[AuthorizationGuard]
 
-  }
-
-,
-  
+  },
   {
     path:'**',
     component:ErrorComponent
