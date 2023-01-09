@@ -28,8 +28,9 @@
              <th scope="col">point1desc2</th> <th scope="col">point1desc3</th>
              <th scope="col">point2desc1</th> <th scope="col">point2desc2</th>
              <th scope="col">point2desc3</th> <th scope="col">protectImage</th>
-             <th scope="col"></th>
-             <th scope="col"></th>
+             <th></th>
+             <th scope="col">Update</th>
+             <th scope="col">Delete</th>
 
  
            </tr>
@@ -52,12 +53,12 @@
                <th scope="col">{{obj.point2desc1}}</th><th scope="col">{{obj.point2desc2}}</th>
                <th scope="col">{{obj.point2desc3}}</th>
                <th scope="col"><img src="../../../assets/images/{{obj.protectimage}}" alt=""></th>
-               <br>
-
                <th scope="col">
                   <button (click)="openUpdateDialog(obj)">Update</button>
-                <button  (click)="openDeleteDialog(obj.aboutid)">Delete</button> </th>
-             
+               </th>
+             <th  scope="col">             
+                <button  (click)="openDeleteDialog(obj.aboutid)">Delete</button>
+             </th>
              
            </tr>
           

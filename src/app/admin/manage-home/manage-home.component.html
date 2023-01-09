@@ -34,6 +34,8 @@
           <th scope="col">newsImage2</th><th scope="col">newsImage3</th>
           <th scope="col">newsdesc1</th> <th scope="col">newsdesc2</th>
           <th scope="col">newsdesc3</th>
+          <th scope="col">Update</th>
+             <th scope="col">Delete</th>
          </tr>
       </thead>
       <tbody>
@@ -53,11 +55,12 @@
             <th scope="col"><img src="../../../assets/images/{{obj.newsimage3}}"></th>
             <th scope="col">{{obj.newsdesc1}}</th> <th scope="col">{{obj.newsdesc2}}</th>
             <th scope="col">{{obj.newsdesc3}}</th>
-            <th scope="col"></th>
-            <th>  <button (click)="openUpdateDialog(obj)"  class="table-active" >Update</button>
-            <button  (click)="openDeleteDialog(obj.homeid)"  class="table-active" >Delete</button> 
+             <th scope="col"> 
+               <button (click)="openUpdateDialog(obj)"  class="table-active" >Update</button>
           </th>
-          
+          <th scope="col">    
+                    <button  (click)="openDeleteDialog(obj.homeid)"  class="table-active" >Delete</button> 
+          </th>
         </tr>
           </tbody>
     </table>

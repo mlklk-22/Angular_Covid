@@ -34,6 +34,9 @@
              <th scope="col"> link2title4 </th >
              <th scope="col"> link3title4 </th >
              <th scope="col"> link4title4 </th >
+              
+              <th scope="col"> Update </th >
+                <th scope="col"> Delete </th >
           </tr>
         </thead>
         <tbody *ngFor="let obj of footer.allFooter">
@@ -54,13 +57,17 @@
             <td>{{obj.link1title4}}</td>
             <td>{{obj.link2title4}}</td>
             <td>{{obj.link3title4}}</td>
-            <td>{{obj.link4title4}}</td>      
-    
-            <div>
-                <button (click)="openUpdateDialog(obj)"  style=" margin-right:10%; "class="table-active" > Update</button>
-                <br><br>
+            <td>{{obj.link4title4}}</td>    
+            <td></td>  
+        <td>       
+                   <button (click)="openUpdateDialog(obj)"  style=" margin-right:10%; "class="table-active" > Update</button>
+        </td>
+ 
+              <td>
                 <button (click)="openDeleteDialog(obj.footerid)"  style="  margin-right:10%; "  class="table-active"> Delete</button> 
-           </div>
+
+              </td>  
+         
      </tr>
           
     <br>

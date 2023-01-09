@@ -1,11 +1,11 @@
-
-<section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center" style="background-image:url(https://www.kennedypartnerslawyers.com.au/assets/uploads/2020/04/fusion-medical-animation-EAgGqOiDDMg-unsplash-scaled.jpg); height: 100px;  background-position: center;
+<!-- 
+<section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center" style=" background-image:url(https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_21826_16415703443404434.jpg); height: 100px;  background-position: center;
 background-repeat: no-repeat;
 background-size: cover; ">
 
 \
       <div class="container">
-        <div class="row justify-content-center form-bg-image" data-background-lg="assets/img/signin.svg">
+        <div class="row justify-content-center form-bg-image" data-background-lg="assets/img/login.png">
            <div class="col-12 d-flex align-items-center justify-content-center">
               <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                <div class="text-center text-md-center mb-4 mt-md-0">
@@ -42,8 +42,7 @@ background-size: cover; ">
         </mat-error>
      </mat-form-field>
     </div>
-    <!-- <ngx-recaptcha2 #captchaElem [siteKey]="siteKey">
-  </ngx-recaptcha2> -->
+    
   
   </div>
 </div>
@@ -52,11 +51,11 @@ background-size: cover; ">
 
    
       </form>
-      <div class="d-grid"> <button (click)="submit()" class="btn btn-gray-800" [disabled]="!username.valid||!password.valid||!recaptcha.valid" >Login</button></div>
+      <div class="d-grid "> <button (click)="submit()" class="btn btn-gray-800" [disabled]="!username.valid||!password.valid||!recaptcha.valid" >Login</button></div>
 
       <span class="fw-normal" >Not registered? <a (click)=" goToregister()"  class="fw-bold">Create account</a></span> 
       <br>
-      <span class="fw-normal" >forget the Password ? <a (click)=" openUpdateDailog()"  class="fw-bold">Write a New :)</a></span> 
+      <span class="fw-normal" >forget the Password ? <a (click)=" openUpdateDailog()"  class="fw-bold">New Password</a></span> 
     </div>
   </div>
 </div>
@@ -97,4 +96,110 @@ background-size: cover; ">
   
   </ng-template>
   
+   -->
+
+     
+  <body>
   
+    <br><br>  
+       <!-- Corona animation container -->
+       <div class="animatediv" >
+         <img src="../../../assets/img/covid19.png">
+    
+       </div>
+     
+       <!-- Image on top of the Main menu container -->
+       <img src="https://atheistiran.com/wp-content/uploads/2020/03/people-mask.png" class="TopImage" style="margin-left: 5%;">
+   
+   
+   
+     
+       <!-- Main Menu Start -->
+       
+      
+       <div class="container" style="margin-right: 20%;">
+                <div class="bg-white shadow border-0 rounded border-light p-12 p-lg-5 w-100 fmxw-500">
+                  <div class="text-center text-md-center ">
+                     <h1  style="color: rgb(209, 154, 200); font-family: Courier New 	;"> Sign In </h1>
+                  </div> 
+                  <!-- <div class="text-center text-md-center ">
+                   <h1  style="color: rgb(209, 154, 200); font-family: Courier New	;"> Account </h1>
+                </div>  -->
+                  
+                <form class="mt-4 con"  >
+                  <div class="form-group mb-4">
+                    <div class="input-group">
+          
+                  <mat-form-field >
+                    <mat-label>UserName</mat-label>
+                  <input matInput style="display:inline" type="text" 
+                  [formControl]="username" title="username" placeholder="username" >
+          
+                  <mat-error *ngIf="username.hasError('required')">
+                UserName is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <div class="form-group mb-4">
+                 <div class="input-group">
+                <mat-form-field >
+                  <input matInput  [formControl]="password" 
+                  type="password" title="password" placeholder="Password" >
+                  <mat-error *ngIf="password.hasError('minlength')">
+                    Please enter a strong password
+                  </mat-error>
+                  <mat-error *ngIf="password.hasError('required')">
+                      password is <strong>required</strong>
+                  </mat-error>
+               </mat-form-field>
+              </div>
+              
+            
+            </div>
+          </div>
+          
+                 
+          
+             
+                </form>
+                <div class="d-grid "> <button (click)="submit()" style="background-color: rgb(209, 154, 200);  " class="btn btn-gray-800" [disabled]="!username.valid||!password.valid||!recaptcha.valid" >Login</button></div>
+          
+                <span class="fw-normal" >Not registered? <a (click)=" goToregister()"  class="fw-bold">Create Account</a></span> 
+                <br>
+                <span class="fw-normal" >Forget the Password ? <a (click)=" openUpdateDailog()"  class="fw-bold">New Password</a></span> 
+              </div>
+            </div>
+        
+          
+          <ng-template #callUpdateDailog>
+          
+            <mat-dialog-content class="mat-typography">
+                <form class="example-form" [formGroup]="updateForm" >
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>User Name</mat-label>
+                        <input type="text" matInput formControlName="username">
+                        
+                        <mat-error *ngIf="updateForm.controls['username'].hasError('required')">
+                            User Name  <strong>required</strong>
+                        </mat-error>
+                        </mat-form-field>
+                        <br>
+            
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>New Password</mat-label>
+                        <input type="text" matInput formControlName="password">
+                        
+                        <mat-error *ngIf="updateForm.controls['password'].hasError('required')">
+                            Password <strong>required</strong>
+                        </mat-error>
+                        </mat-form-field>
+                </form>
+            </mat-dialog-content>
+            <mat-dialog-actions align="end">
+                <button mat-button mat-dialog-close>Cancel</button>
+                <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="editForgetPass()">Save</button>
+            </mat-dialog-actions>
+          

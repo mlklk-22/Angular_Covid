@@ -5,9 +5,10 @@
   <div class="pcoded-wrapper">
       <div class="pcoded-content">
           <div class="pcoded-inner-content">
-              
-   <h1 style="font-family: serif; margin-left:45% ;">Manage Reservation</h1>
-   
+            <br><br>
+
+   <h1 style="font-family: serif; margin-left:40% ;">Manage Reservation</h1>
+   <br><br>
 <form class="form-inline content" style="margin-left: 30%;" >
   <legend style="font-family: Fantasy	;">First Dose</legend>
 
@@ -45,15 +46,16 @@
 <div class="card border-0 shadow mb-4 " >
   <div class="card-body">
       <div class="table-responsive">
-<table class="table table-centered  table-nowrap  rounded" style="margin-left: 20%;">
+<table class="table table-centered  table-nowrap  rounded">
   <thead class="table-danger">
       <tr>
-    <th class="border-0">Name</th>
+    <th scope="col">Name</th>
     <th scope="col"> First Dose date</th>
     <th scope="col">Secound Dose date</th>
-    <th class="border-0 ">Center Name</th>
-    <th></th>
-  </tr>
+    <th scope="col">Center Name</th>
+    <th scope="col">Update</th>
+    <th scope="col">Delete</th>
+     </tr>
   </thead>
 
   <tbody *ngFor="let obj of doctor.userReservation" >
@@ -62,10 +64,13 @@
       <td>{{obj.actualdatedose1}}</td>
       <td>{{obj.actualdatedose2}}</td>
       <td>{{obj.centername}}</td>
-      <td> {{obj.Id}} </td>  
-          <button (click)="openUpdateDailog(obj)"  class="table-active">Update</button>
-          <button (click)="openDelteDailog(obj.reserveid)" class="table-active">Delete</button>
-        </tr>
+ <td>         
+   <button (click)="openUpdateDailog(obj)"  class="table-active">Update</button>
+</td>
+<td>     
+   <button (click)="openDelteDailog(obj.reserveid)" class="table-active">Delete</button>
+</td>     
+   </tr>
   </tbody>
 </table>
 

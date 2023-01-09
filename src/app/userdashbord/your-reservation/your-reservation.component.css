@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Amarante");
-
+ 
 html,
 body,
 div,
@@ -99,13 +99,17 @@ html {
   overflow-y: scroll;
 }
 body {
-  background: #eee url("https://i.imgur.com/eeQeRmk.png"); /* https://subtlepatterns.com/weave/ */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: rgb(242, 238, 246);;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 62.5%;
   line-height: 1;
+  height: -100%;
+  background-position: center;
+
   color: #585858;
   padding: 22px 10px;
   padding-bottom: 55px;
+  background-size: cover;
 }
 
 ::selection {

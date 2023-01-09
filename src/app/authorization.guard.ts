@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { t } from 'chart.js/dist/chunks/helpers.core';
+// import { t } from 'chart.js/dist/chunks/helpers.core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 

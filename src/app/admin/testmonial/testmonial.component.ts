@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { F } from 'chart.js/dist/chunks/helpers.core';
+// import { F } from 'chart.js/dist/chunks/helpers.core';
 import { HomeService } from 'src/app/Services/home.service';
   
 
