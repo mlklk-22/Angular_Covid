@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private spinner:NgxSpinnerService,public home:HomeService,private auth:AuthService,private router:Router, public dialog:MatDialog, private user:UserService) { }
   @ViewChild('callUpdateDailog') callUpdateDailog!:TemplateRef<any> 
   username:FormControl = new FormControl('' ,[Validators.required ]);
-  password:FormControl = new FormControl('' ,[Validators.required , Validators.minLength(8)]);
+  password:FormControl = new FormControl('' ,[Validators.required , Validators.minLength(8)] );
   recaptcha: FormControl =new FormControl (['', Validators.required]);
 
   
