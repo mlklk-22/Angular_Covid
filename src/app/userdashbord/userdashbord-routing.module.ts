@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestmonialComponent } from '../admin/testmonial/testmonial.component';
 import { CenterComponent } from './center/center.component';
 import { CertificateComponent } from './certificate/certificate.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { HomeUaerComponent } from './home-uaer/home-uaer.component';
 import { ReservationComponent } from './reservation/reservation.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
   path:'usertestmonial',
   component:UserTestmonialComponent
 },
+{
+  path:'contactUs',
+  component:ContactUsComponent
+}
 ];
 
 @NgModule({
