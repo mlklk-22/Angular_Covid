@@ -20,7 +20,6 @@ export class ReservationService {
     this.http.get('https://localhost:44352/api/Reservation/getall').subscribe((res)=>{
       this.reservation=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrived successfully');
 
     },err=>{
       this.spinner.hide();
@@ -38,7 +37,6 @@ export class ReservationService {
       debugger
       this.reservation =[ res] ;
       this.spinner.hide();
-      this.toastr.success('Successfully !!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);

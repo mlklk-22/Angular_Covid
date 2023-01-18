@@ -41,7 +41,6 @@ export class HomeService {
       {
        this.allTestmonial = resp;
        this.spinner.hide();
-       this.toastr.success('All Testmonials');
      },
      err=>
      {
@@ -57,7 +56,6 @@ export class HomeService {
      this.allTestmonialUsers = resp;
      console.log(this.allTestmonialUsers)
      this.spinner.hide();
-     this.toastr.success('All Testmonials');
    },
    err=>
    {
@@ -138,7 +136,6 @@ export class HomeService {
       {
         this.spinner.hide();
         this.allHome = resp;
-        this.toastr.success('All Home Centers');
       }, err=>
       {
         this.spinner.hide();
@@ -243,7 +240,6 @@ export class HomeService {
         this.spinner.hide();
         this.centertitlecoordinate= [resp.centername];
         this.allVacciniationCentre = resp;
-        this.toastr.success('All Vacciniation Centers');
       }, err=>
       {
         this.spinner.hide();
@@ -256,7 +252,6 @@ export class HomeService {
       {
         this.spinner.hide();
         this.totalCenters = resp;
-        this.toastr.success('All Vacciniation Centers');
       }, err=>
       {
         this.spinner.hide();
@@ -338,7 +333,6 @@ export class HomeService {
       {
         this.spinner.hide();
         this.allAbout = resp;
-        this.toastr.success('All About');
       }, err=>
       {
         this.spinner.hide();
@@ -417,7 +411,6 @@ export class HomeService {
       {
         this.spinner.hide();
         this.allFooter = resp;
-        this.toastr.success('All footer Centers');
       }, err=>
       {
         this.spinner.hide();

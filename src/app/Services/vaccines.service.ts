@@ -16,7 +16,6 @@ export class VaccinesService {
     this.http.get('https://localhost:44352/api/Vaccines').subscribe((res)=>{
       this.Vaccine=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrived successfully');
 
     },err=>{
       this.spinner.hide();
@@ -88,7 +87,6 @@ this.http.post('https://localhost:44352/api/vaccines',body).subscribe((resp)=>{
       this.vaccineCertifcate=resp;
 
       this.spinner.hide();
-      this.toastr.success(' Successfully Return Certificate');
 
     },err=>{
       this.spinner.hide();

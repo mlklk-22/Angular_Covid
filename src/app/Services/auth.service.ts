@@ -43,12 +43,18 @@ export class AuthService {
             localStorage.setItem('fullname',data.fullname)
 
             localStorage.setItem('user',JSON.stringify({...data}));
-            if(data.Role =="3")
+            if(data.Role =="3"){
             this.router.navigate(['admin']);
-            else if (data.Role == "2")
+            this.toster.success('Hello ' + localStorage.getItem('fullname'))
+            }
+            else if (data.Role == "2"){
             this.router.navigate(['managedoctor/user']);
-            else if (data.Role== "1")
+            this.toster.success('Hello ' + localStorage.getItem('fullname'))
+            }
+            else if (data.Role== "1"){
             this.router.navigate(['userdashbord/']);
+            this.toster.success('Hello ' + localStorage.getItem('fullname'))
+            }
 
             
             } ,err=>{ 

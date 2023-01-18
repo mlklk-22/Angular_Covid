@@ -21,7 +21,6 @@ export class UserService {
     {
      this.TotalUsers = resp;
      this.spinner.hide();
-     this.toastr.success('All Testmonials');
      console.log(this.TotalUsers)
 
    },
@@ -40,7 +39,6 @@ export class UserService {
      this.spinner.hide();
      console.log(this.TotalDoctors)
 
-     this.toastr.success('All Testmonials');
    },
    err=>
    {
@@ -56,7 +54,6 @@ export class UserService {
     this.http.get('https://localhost:44352/api/UserAccount').subscribe((res)=>{
       this.User=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved!!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);
@@ -71,7 +68,6 @@ export class UserService {
       
       this.doctor=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved!!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);
@@ -134,7 +130,6 @@ getUserById(id:number){
   this.http.get('https://localhost:44352/api/UserAccount/GetById/' + id).subscribe((resp)=>{
     this.User=[resp];
     this.spinner.hide();
-    this.toastr.success('returnd Successfully !!');
 
   },err=>{
     this.spinner.hide();

@@ -17,7 +17,6 @@ export class DoctorService {
     this.http.get('https://localhost:44352/api/userReservation').subscribe((res:any)=>{
       this.userReservation=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved!!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);
@@ -31,7 +30,6 @@ export class DoctorService {
     this.http.get('https://localhost:44352/api/UserInfo').subscribe((res)=>{
       this.userinfo=res;
       this.spinner.hide();
-      this.toastr.success('Data Retrieved!!');
     },err=>{
       this.spinner.hide();
       this.toastr.error(err.message,err.status);
